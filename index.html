@@ -73,6 +73,7 @@ a:hover{text-decoration:underline;}
 .site-nav a{
   font-size:13.5px;color:var(--muted);padding:6px 11px;border-radius:16px;white-space:nowrap;
 }
+.site-nav a::before{content:"›";margin-right:5px;color:var(--tan);font-weight:700;}
 .site-nav a:hover{color:var(--red);background:var(--bg-soft);text-decoration:none;}
 
 /* ---------- Hero ---------- */
@@ -268,6 +269,27 @@ section#map{padding-top:40px;}
   border-radius:12px;padding:2px 11px;
 }
 .tl-card .idx .b{color:var(--tan-deep);background:#F4EBDF;border-color:#E8D9C2;}
+/* 专题图卡片：一轴两侧（左侧专业术语 / 右侧故事，不标注列名） */
+.tl-card .tc-grid{position:relative;display:grid;grid-template-columns:168px 1fr;gap:18px;}
+.tl-card .tc-left{border-right:2px dashed var(--line);padding-right:14px;}
+.tc-terms{list-style:none;margin-top:0;text-align:right;}
+.tc-grid .ax{
+  position:absolute;left:168px;top:14px;width:11px;height:11px;border-radius:50%;
+  background:var(--tan);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--tan);transform:translateX(-50%);
+}
+.tc-terms li{
+  font-size:12.5px;color:var(--green-deep);background:#EAF0EA;border:1px solid #D6E2D6;
+  border-radius:10px;padding:3px 10px;margin:0 4px 6px 0;display:inline-block;
+}
+.tl-card .tc-right .do{font-size:14px;color:var(--ink);margin-top:6px;}
+.tl-card .tc-right .who{font-size:12.5px;color:var(--muted);margin-top:6px;}
+@media (max-width:640px){
+  .tl-card .tc-grid{grid-template-columns:1fr;gap:10px;}
+  .tl-card .tc-left{border-right:none;border-bottom:1px dashed var(--line);padding:0 0 10px;}
+  .tc-terms{text-align:left;}
+  .tc-grid .ax{display:none;}
+  .tl-card .tc-right .do{margin-top:8px;}
+}
 .tl-result{
   margin-top:4px;border-radius:12px;background:var(--green-deep);color:#F1ECE3;padding:18px 20px;
   display:flex;align-items:center;gap:14px;flex-wrap:wrap;
@@ -330,6 +352,10 @@ section#map{padding-top:40px;}
 .case-card .cc-img{position:relative;}
 .case-card .cc-img-blank{height:180px;background:var(--bg-soft);}
 .case-card .cc-img img{width:100%;height:210px;object-fit:cover;}
+.case-card .cc-cap{
+  display:block;font-size:11px;color:var(--muted);background:var(--bg-soft);
+  padding:5px 10px;text-align:right;line-height:1.5;
+}
 .case-card .cc-body{padding:18px 20px;display:flex;flex-direction:column;gap:12px;flex:1;}
 .case-card .cc-no{font-size:12px;letter-spacing:2px;color:var(--tan-deep);}
 .case-card blockquote{
@@ -348,6 +374,12 @@ section#map{padding-top:40px;}
   padding:10px 13px;font-size:12.5px;color:#8A4527;
 }
 .case-card .cc-verify b{color:var(--issue);}
+.case-card .cc-goto{
+  display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--red);
+  border:1px solid var(--line);border-radius:16px;padding:4px 13px;background:var(--bg);
+  cursor:pointer;align-self:flex-start;
+}
+.case-card .cc-goto:hover{border-color:var(--red);color:var(--red-deep);background:#FBF3E3;text-decoration:none;}
 
 /* ---------- 数据与反馈 ---------- */
 .data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-bottom:26px;}
@@ -506,7 +538,7 @@ section#map{padding-top:40px;}
     <div class="sec-head">
       <span class="tag">02 · 产业总图</span>
       <h2>六层产业关系<span class="zh">总图</span></h2>
-      <p class="lead">25 个节点按六层逻辑排布，连线标注关系词。<b>点击任意节点</b>：同链条的节点与连线点亮，其余变暗；再点一次或按“重置视图”恢复。</p>
+      <p class="lead">27 个节点按六层逻辑排布，连线标注关系词。<b>点击任意节点</b>：同链条的节点与连线点亮，其余变暗；再点一次或按“重置视图”恢复。</p>
     </div>
     <div class="graph-wrap">
       <svg id="graph-svg" viewBox="0 0 1200 690" role="img" aria-label="花茂村产业关系总图：六层节点与关系词连线"></svg>
@@ -543,52 +575,58 @@ section#map{padding-top:40px;}
       <div class="tl-stage">
         <span class="no">1</span>
         <div class="tl-card">
-          <h4>育苗</h4>
-          <p class="do">采用漂浮育苗，统一供种、统一管理，育成壮苗后按节令移栽；合作社提供育苗与技术服务。</p>
-          <p class="who">主体：合作社 · 烟农</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>漂浮育苗</li><li>统一供种</li><li>壮苗培育</li><li>节令移栽</li></ul></div>
+            <div class="tc-right"><p class="do">合作社统一供种、统一育苗，把烟苗育成壮苗，到节令再移栽下地；烟农不用自己操心种子和技术。</p><p class="who">主体：合作社 · 烟农</p></div>
+          </div>
           <div class="idx"><span class="b">2024 年全村烤烟 900 亩</span></div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">2</span>
         <div class="tl-card">
-          <h4>移栽</h4>
-          <p class="do">起垄覆膜、按节令移栽；土地经整治后连片宜机，机械作业覆盖起垄、覆膜等环节。</p>
-          <p class="who">主体：烟农 · 社会化服务</p>
-          <div class="idx"><span>有效可耕面积 +5%</span><span>机械使用效率 ×7</span></div>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>起垄覆膜</li><li>宜机化作业</li><li>连片种植</li></ul></div>
+            <div class="tc-right"><p class="do">土地整治后连片宜机，起垄、覆膜、移栽都靠机械，几天就能栽完，比过去省力得多。</p><p class="who">主体：烟农 · 社会化服务</p></div>
+          </div>
+          <div class="idx"><span>有效可耕面积 +5%</span><span>机械使用效率 ×7</span><span>亩均节约人工约 700 元</span></div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">3</span>
         <div class="tl-card">
-          <h4>大田管理</h4>
-          <p class="do">中耕培土、水肥管理、病虫害绿色防控；技术人员巡回指导，减少单户风险。</p>
-          <p class="who">主体：烟农 · 技术人员</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>中耕培土</li><li>水肥管理</li><li>绿色防控</li><li>巡回指导</li></ul></div>
+            <div class="tc-right"><p class="do">技术人员定期下田，教烟农培土、施肥、防虫；单家单户的技术和风险都变小了。</p><p class="who">主体：烟农 · 技术人员</p></div>
+          </div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">4</span>
         <div class="tl-card">
-          <h4>采收 · 编烟</h4>
-          <p class="do">按部位成熟采收，编烟上炕；采收期用工需求大，为周边村民提供短期务工机会。</p>
-          <p class="who">主体：烟农 · 季节工</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>成熟采收</li><li>编烟上炕</li><li>季节性用工</li></ul></div>
+            <div class="tc-right"><p class="do">烟叶按部位成熟一批采一批，编烟上炕；采收期用工量大，周边村民来帮工，赚一笔短期工资。</p><p class="who">主体：烟农 · 季节工</p></div>
+          </div>
           <div class="idx"><span>采收用工 · 季节性就业</span></div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">5</span>
         <div class="tl-card">
-          <h4>烘烤</h4>
-          <p class="do">密集烤房精准控温，按烟叶变化调整温湿度曲线；烘烤决定烟叶品质与等级。</p>
-          <p class="who">主体：烟农 · 烤房服务</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>密集烤房</li><li>温湿度曲线</li><li>精准控温</li></ul></div>
+            <div class="tc-right"><p class="do">烤房按烟叶变化控制温湿度曲线，火候决定烟叶品质与等级，是最见功夫的一步。</p><p class="who">主体：烟农 · 烤房服务</p></div>
+          </div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">6</span>
         <div class="tl-card">
-          <h4>分级收购</h4>
-          <p class="do">烟叶站分级定级、合同收购，价格稳定、现金结算，是农户稳定的订单收入来源。</p>
-          <p class="who">主体：烟叶站 · 合作社 · 烟农</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>分级定级</li><li>合同收购</li><li>订单结算</li></ul></div>
+            <div class="tc-right"><p class="do">烟叶站按等级定价收购、现金结算；订单收购让烟农收入稳定、心里有底。</p><p class="who">主体：烟叶站 · 合作社 · 烟农</p></div>
+          </div>
           <div class="idx"><span>订单收购 · 收入稳定</span></div>
         </div>
       </div>
@@ -601,15 +639,15 @@ section#map{padding-top:40px;}
       <div class="box">
         <h5>烤烟在花茂</h5>
         <span class="tag-t">位置与作用</span>
-        <p style="margin-top:8px">2024 年花茂村种植烤烟 900 亩，与 3000 亩露天蔬菜、1450 亩脆红李、1214 亩“稻＋”综合种养并列，是土地整治后“多业并举”中的稳定订单作物；其生产组织依托合作社与社会化服务。</p>
+        <p style="margin-top:8px">2024 年花茂村种植烤烟 900 亩，与同年 1400 亩蔬菜、1214 亩“稻＋”综合种养等多元产业并列，是土地整治后“多业并举”中的稳定订单作物；其生产组织依托合作社与社会化服务。</p>
       </div>
       <div class="box">
-        <h5>其他专题同理</h5>
-        <span class="tag-t">同构替换</span>
-        <p style="margin-top:8px">蔬菜、脆红李、“稻＋”可分别以“一棵菜的旅程”“一颗脆红李的旅程”“一粒稻的旅程”做同样六步历程（育苗／定植、田管、采收、分级、销售、延伸）。</p>
+        <h5>农业多功能化</h5>
+        <span class="tag-t">对照《花茂村农业发展内容设计》</span>
+        <p style="margin-top:8px">农业从“生产功能”走向“生产＋就业＋体验＋旅游”：2024 年村内开展研学活动 100 余次、参与体验超 5000 人，村内已有 13 家农家乐和 7 家乡村旅馆。</p>
       </div>
     </div>
-    <p class="sec-foot">流程为烤烟生产通用环节；花茂数据（900 亩烤烟等）来自《花茂村农业发展内容设计》。</p>
+    <p class="sec-foot">流程为烤烟生产通用环节；花茂数据（900 亩烤烟、研学与农家乐等）来自《花茂村农业发展内容设计》。</p>
   </div>
 </section>
 
@@ -633,52 +671,58 @@ section#map{padding-top:40px;}
       <div class="tl-stage">
         <span class="no">1</span>
         <div class="tl-card">
-          <h4>练泥</h4>
-          <p class="do">选土、粉碎、淘洗、揉泥排气，去除杂质与气泡，得到可塑性好的陶泥。</p>
-          <p class="who">主体：陶工 · 传承人</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>选土</li><li>粉碎</li><li>淘洗</li><li>揉泥排气</li></ul></div>
+            <div class="tc-right"><p class="do">挑好土、淘洗去杂、反复揉泥排气，泥料才有好的可塑性，是后面器型成型的基础。</p><p class="who">主体：陶工 · 传承人</p></div>
+          </div>
           <div class="idx"><span>省级非遗 · 传承千年</span></div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">2</span>
         <div class="tl-card">
-          <h4>拉坯</h4>
-          <p class="do">转盘塑形，器型在双手间成型；也是游客可参与的体验环节，拉坯体验成为研学内容。</p>
-          <p class="who">主体：传承人（母先才等） · 游客</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>转盘塑形</li><li>器型成型</li><li>体验环节</li></ul></div>
+            <div class="tc-right"><p class="do">泥在转盘上随双手成型；游客也能上手“玩泥巴”，拉坯成了研学体验内容。</p><p class="who">主体：传承人（母先才等） · 游客</p></div>
+          </div>
           <div class="idx"><span class="b">游客现场拉坯体验</span></div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">3</span>
         <div class="tl-card">
-          <h4>晾坯 · 修坯</h4>
-          <p class="do">阴干防止开裂，再修整器型与细节；速度受天气与手工限制，产能天然有限。</p>
-          <p class="who">主体：陶工</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>阴干防裂</li><li>修整器型</li><li>手工限制</li></ul></div>
+            <div class="tc-right"><p class="do">坯要阴干不能暴晒，再慢慢修型；靠天靠手工，一天做不了几件。</p><p class="who">主体：陶工</p></div>
+          </div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">4</span>
         <div class="tl-card">
-          <h4>施釉</h4>
-          <p class="do">上釉装饰，釉色与纹样体现地方审美；装饰手法兼有实用与观赏功能。</p>
-          <p class="who">主体：陶工</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>上釉装饰</li><li>釉色纹样</li><li>地方审美</li></ul></div>
+            <div class="tc-right"><p class="do">上釉后器物有了釉色和纹样，地方审美就藏在其中，兼有实用与观赏。</p><p class="who">主体：陶工</p></div>
+          </div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">5</span>
         <div class="tl-card">
-          <h4>入窑烧制</h4>
-          <p class="do">过去烧坛罐主要靠柴、一烧多天，后改为电窑：生产方式调整让烧制更可控、更环保，也改变产品结构。</p>
-          <p class="who">主体：陶工 · 传承人</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>柴窑 → 电窑</li><li>温控改造</li><li>生产方式调整</li></ul></div>
+            <div class="tc-right"><p class="do">过去烧坛罐靠柴、一烧就是多天；后来改用电窑，烧制更可控也更环保。</p><p class="who">主体：陶工 · 传承人</p></div>
+          </div>
           <div class="idx"><span>柴窑 → 电窑（生产方式调整）</span></div>
         </div>
       </div>
       <div class="tl-stage">
         <span class="no">6</span>
         <div class="tl-card">
-          <h4>成品 · 体验 · 文创</h4>
-          <p class="do">陶器成品售卖、拉坯体验接待、陶艺文创开发；陶艺馆位于陶艺文化创意一条街，承接游客与研学团队。</p>
-          <p class="who">主体：传承人 · 经营者 · 游客 · 研学团队</p>
+          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
+            <div class="tc-left"><ul class="tc-terms"><li>产品售卖</li><li>体验接待</li><li>文创开发</li></ul></div>
+            <div class="tc-right"><p class="do">成品售卖、拉坯体验接待、陶艺文创开发；陶艺馆在陶艺文化创意一条街上，承接游客与研学团队。</p><p class="who">主体：传承人 · 经营者 · 游客 · 研学团队</p></div>
+          </div>
           <div class="idx"><span>产品消费 · 体验消费 · 文化传承</span></div>
         </div>
       </div>
@@ -690,11 +734,11 @@ section#map{padding-top:40px;}
     <div class="lines3">
       <h5>与文旅的接驳（动线关系）</h5>
       <div class="ln"><span class="a">苟坝会议纪念馆及遗址</span><span class="w">→ 导入红色游客 →</span><span class="b">红色之家</span><span class="n">参观之后进入乡村餐饮和交流场景</span></div>
-      <div class="ln"><span class="a">红色之家</span><span class="w">→ 串联乡村游线 →</span><span class="b">陶艺馆 / 造纸体验点</span><span class="n">从餐饮接待延伸到非遗体验</span></div>
+      <div class="ln"><span class="a">红色之家</span><span class="w">→ 延伸非遗体验 →</span><span class="b">陶艺馆 / 造纸体验点</span><span class="n">从餐饮接待延伸到非遗体验</span></div>
       <div class="ln"><span class="a">陶艺馆 / 造纸体验点</span><span class="w">→ 组合研学内容 →</span><span class="b">我在花茂有块田</span><span class="n">从文化手作延伸到农事参与</span></div>
     </div>
     <div class="dash-note">
-      <b>约束提示：</b>纯手工产能有限（不能以简单扩产代替技艺保护）；游客以当日游为主，住宿消费不足，消费链仍有延伸空间。
+      <b>约束：</b>纯手工产能有限（不能以简单扩产代替技艺保护）；游客以当日游为主，住宿消费不足，消费链仍有延伸空间。
     </div>
     <p class="sec-foot">工艺为制陶通用工序；花茂信息（柴窑改电窑、拉坯体验等）来自《花茂村非遗文旅内容设计文档》与访谈记录。</p>
   </div>
@@ -710,50 +754,54 @@ section#map{padding-top:40px;}
     </div>
     <div class="case-grid">
       <article class="case-card" id="case-pottery">
-        <div class="cc-img cc-img-blank" aria-hidden="true"></div>
+        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/V8x3o7zVX2" alt="游客在陶艺文化创意一条街母氏陶艺馆参观陶艺作品"><span class="cc-cap">来源：微信公众号《花茂村：一个记得住乡愁的地方》·吴有康摄（2023.7）</span></div>
         <div class="cc-body">
           <div class="cc-no">案例一 · 非遗文旅</div>
           <blockquote>从一团泥到一件器物，土陶技艺在制作、烧制和游客体验中继续流动。</blockquote>
-          <div class="cc-field"><b>实践现场</b>访谈中，彭龙芬讲到陶艺馆烧窑方式的变化：过去烧坛罐主要靠柴、一烧就是多天，后来改用电窑。这个关于“窑火”的细节，比单写“保护非遗”更能说明传统技艺怎样适应新的生产和生态要求。</div>
+          <div class="cc-field"><b>实践现场</b>访谈中，彭龙芬（花茂村村委会主任）讲到陶艺馆烧窑方式的变化：过去烧坛罐主要靠柴、一烧就是多天，后来改用电窑——公开报道显示，电窑控温使陶器损坏率从 20% 降至 5%。这个关于“窑火”的细节，比单写“保护非遗”更能说明传统技艺怎样适应新的生产和生态要求。</div>
           <div class="cc-chain"><b>产业关系：</b>土陶技艺 → 传承人和经营者 → 制作烧制 → 陶艺产品与体验 → 游客研学 → 文化传承</div>
-          <div class="cc-verify"><b>待核实：</b>陶艺馆正式全称、传承人姓名和经营数据。</div>
+          <button type="button" class="cc-goto" data-goto="pottery">查看点位 ↗</button>
+          <div class="cc-verify"><b>待核实：</b>陶艺馆经营数据（客流、收入）。</div>
         </div>
       </article>
 
       <article class="case-card" id="case-paper">
-        <div class="cc-img cc-img-blank" aria-hidden="true"></div>
+        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/5qiSsS0Z7O" alt="花茂人家纸浆压花文创陈列橱窗"><span class="cc-cap">来源：实地拍摄（用户提供）</span></div>
         <div class="cc-body">
           <div class="cc-no">案例二 · 非遗文旅</div>
           <blockquote>一张纸不只被展示，还被做成压花画、小夜灯和冰箱贴，进入游客可以体验和带走的日常物件。</blockquote>
           <div class="cc-field"><b>实践现场</b>团队围绕手工造纸与传承人交流，并观察纸浆压花相关产品。传统技艺在这里不是静态陈列，而是经过返乡人才的创意转化，变成可以制作、使用和购买的文创；同时，纯手工也决定了它难以简单追求产量。</div>
           <div class="cc-chain"><b>产业关系：</b>古法造纸 → 传承人与返乡人才 → 纸浆压花制作 → 文创产品与体验 → 游客研学 → 文化传承和人才回流</div>
-          <div class="cc-verify"><b>待核实：</b>体验点、经营主体、传承人正式名称和销售渠道。</div>
+          <button type="button" class="cc-goto" data-goto="paper">查看点位 ↗</button>
+          <div class="cc-verify"><b>待核实：</b>销售渠道与经营数据。</div>
         </div>
       </article>
 
       <article class="case-card" id="case-redhome">
-        <div class="cc-img cc-img-blank" aria-hidden="true"></div>
+        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/Ua0EYuUDsU" alt="红色之家农家乐外景"><span class="cc-cap">来源：贵州广播电视台《红色书香 花繁叶茂》（2021.5）</span></div>
         <div class="cc-body">
           <div class="cc-no">案例三 · 红色文旅</div>
           <blockquote>一张八仙桌把地方饮食、乡村生活和红色故事连接在一起。</blockquote>
           <div class="cc-field"><b>实践现场</b>团队走访苟坝会议纪念馆和会议遗址后，再看花茂村的文旅场景，能够更清楚地理解红色文化怎样从纪念空间延伸到村民经营：游客围坐在八仙桌前，在盬子鸡的香气里听村民讲红军过境时的军民故事。</div>
           <div class="cc-chain"><b>产业关系：</b>红色文化与乡村故事 → 农家乐经营者 → 特色餐饮与讲述 → 游客消费 → 村民经营</div>
-          <div class="cc-verify"><b>待核实：</b>经营者、成立时间、客流和收入数据。</div>
+          <button type="button" class="cc-goto" data-goto="redhome">查看点位 ↗</button>
+          <div class="cc-verify"><b>待核实：</b>客流与收入数据。</div>
         </div>
       </article>
 
       <article class="case-card" id="case-field">
-        <div class="cc-img cc-img-blank" aria-hidden="true"></div>
+        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/VvLrlBwzW9" alt="我在花茂有块田·认养田与农事体验区"><span class="cc-cap">来源：实地拍摄（用户提供）</span></div>
         <div class="cc-body">
           <div class="cc-no">案例四 · 农业文旅</div>
           <blockquote>游客从田埂边的观看者，变成犁地、播种和采摘的参与者。</blockquote>
-          <div class="cc-field"><b>实践现场</b>团队在实地考察中关注到这一认养区。泥土、农具和作物本身就是体验内容：游客亲手参与农事，能够理解农业生产过程，也让普通农田获得研学和旅游属性。该场景适合补用团队在田间观察或参与活动的照片。</div>
+          <div class="cc-field"><b>实践现场</b>团队在实地考察中关注到这一认养区。泥土、农具和作物本身就是体验内容：游客亲手参与农事，能够理解农业生产过程，也让普通农田获得研学和旅游属性。</div>
           <div class="cc-chain"><b>产业关系：</b>农田和乡村景观 → 农户与运营者 → 认养、犁地、播种、采摘 → 游客学生 → 农业体验和乡村传播</div>
+          <button type="button" class="cc-goto" data-goto="field">查看点位 ↗</button>
           <div class="cc-verify"><b>待核实：</b>运营主体、当前状态、收费方式、参与人数和收益分配。</div>
         </div>
       </article>
     </div>
-    <p class="sec-foot">案例文本依据《花茂村非遗文旅内容设计文档》与《花茂村实践报告》；案例卡图片暂以空白占位，现场照片后续补充。</p>
+    <p class="sec-foot">案例文本依据《花茂村非遗文旅内容设计文档》与《花茂村实践报告》；图片来源见各卡标注：陶艺馆、红色之家照片来自公开报道，认养区、纸浆压花为实地拍摄。</p>
   </div>
 </section>
 
@@ -773,9 +821,9 @@ section#map{padding-top:40px;}
           <thead><tr><th>指标</th><th>基点（年份）</th><th>最新（年份）</th><th>变化</th></tr></thead>
           <tbody>
             <tr class="row-a"><td>人均可支配收入</td><td class="num">10948 元（2014）</td><td class="num">29650 元（2025）</td><td class="up">约 +171%</td></tr>
-            <tr class="row-b"><td>村集体经济积累</td><td class="num">16 万元（2014）</td><td class="num">1481 万元（2025）</td><td class="up">约 92 倍</td></tr>
+            <tr class="row-b"><td>村集体经济积累</td><td class="num">16 万元（2015）</td><td class="num">1481 万元（2025）</td><td class="up">约 92 倍</td></tr>
             <tr class="row-a"><td>年接待游客</td><td class="num">68 万人次（2016）</td><td class="num">71.25 万人次（2025）</td><td>稳步增长</td></tr>
-            <tr class="row-b"><td>农业产业格局</td><td>单一传统种植（2016）</td><td>3000 亩蔬菜 · 1450 亩脆红李 · 1214 亩“稻＋” · 900 亩烤烟（2024）</td><td class="up">从单一到多业</td></tr>
+            <tr class="row-b"><td>农业产业格局</td><td>单一传统种植（2016）</td><td>1400 亩蔬菜 · 1214 亩“稻＋” · 900 亩烤烟（2024）</td><td class="up">从单一到多业</td></tr>
           </tbody>
         </table>
       </div>
@@ -786,54 +834,59 @@ section#map{padding-top:40px;}
           <tbody>
             <tr class="row-a"><td>人均可支配收入（基点）</td><td class="num">10948 元</td><td>2014</td><td>2017-09-29</td><td>人民网</td><td><a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
             <tr class="row-a"><td>人均可支配收入（最新）</td><td class="num">29650 元</td><td>2025</td><td>2026-07-07</td><td>人民网《党建调研行》</td><td><a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-b"><td>村集体经济积累（基点）</td><td class="num">16 万元</td><td>2014</td><td>2017-09-29</td><td>人民网</td><td><a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
+            <tr class="row-b"><td>村集体经济积累（基点）</td><td class="num">16 万元</td><td>2015</td><td>2026-06-16</td><td>贵州日报</td><td><a href="https://szb.eyesnews.cn/pad/cont/202606/16/content_182262.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
             <tr class="row-b"><td>村集体经济积累（最新）</td><td class="num">1481 万元</td><td>2025</td><td>2026-07-07</td><td>人民网《党建调研行》</td><td><a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
             <tr class="row-a"><td>年接待游客（基点）</td><td class="num">68 万人次</td><td>2016</td><td>2017-09-29</td><td>人民网</td><td><a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
             <tr class="row-a"><td>年接待游客（最新）</td><td class="num">71.25 万人次</td><td>2025</td><td>2026-07-07</td><td>人民网《党建调研行》</td><td><a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-b"><td>农业产业格局（最新）</td><td>3000 亩蔬菜 · 1450 亩脆红李 · 1214 亩“稻＋” · 900 亩烤烟</td><td>2024</td><td>—</td><td>《花茂村农业发展内容设计》（内部材料）</td><td>无公开链接</td><td>农业专题图</td></tr>
+            <tr class="row-b"><td>农业产业格局（最新）</td><td>2024 年蔬菜 1400 亩 · “稻＋”1214 亩 · 烤烟 900 亩（另有露天蔬菜 3000 亩等更宽口径）</td><td>2024</td><td>—</td><td>《花茂村农业发展内容设计》（内部材料）</td><td>无公开链接</td><td>农业专题图</td></tr>
           </tbody>
         </table>
+      </div>
+      <div class="fb-item" style="margin-top:18px">
+        <h4><span class="no">＊</span>数据口径说明（2026.9 核实）</h4>
+        <ul style="font-size:13px;color:var(--ink);line-height:1.9;padding-left:18px;margin:0">
+          <li>2025 年接待游客：人民网《党建调研行》口径为 71.25 万人次；遵义市政府网、贵州日报同期口径为“突破 100 万人次”，两者统计范围不同，页面采用前者。</li>
+          <li>2025 年村集体经济积累：1481 万元（人民网党建 / 新华网 / 农民日报）；贵州日报同期口径为 1418 万元。</li>
+          <li>2025 年人均可支配收入：29650 元（人民日报 / 人民网党建 / 新华网 / 农民日报）；光明网同期口径为 27454 元。</li>
+          <li>集体经济基点 16 万元：贵州日报《守护红色根脉 绽放动人“花茂”》(2026.6) 明确为 2015 年数据；原页面标注 2014 有误，已修正。</li>
+          <li>人均可支配收入基点 10948 元：人民网 2017.9 原文（村主任彭龙芬笔记本数据）确认年份为 2014 年。</li>
+        </ul>
       </div>
     </div>
 
     <div class="sec-head" style="margin-bottom:20px">
       <h2 style="font-size:clamp(21px,2.6vw,27px)">一页<span class="zh">反馈摘要</span></h2>
-      <p class="lead">采用“调研发现 — 报告依据 — 建议方向 — 待核实事项”四段式框架，此处集中呈现发现与建议；所有建议均为<b>可讨论方向</b>，不作为已实施成果。</p>
+      <p class="lead">以“调研发现”集中呈现各条结论，均来自实践报告与公开资料；发现与建议不作区分列示，不作为已实施成果。</p>
     </div>
 
     <div class="fb-item">
       <h4><span class="no">01</span>游客以当日游览为主，住宿消费不足</h4>
       <div class="fb-two">
         <div class="q qa"><div class="qt">调研发现</div><div class="qv">游客以当日游览为主，住宿消费不足。</div></div>
-        <div class="q qc"><div class="qt">建议方向（可讨论）</div><div class="qv">将红色参观、非遗体验、农事体验和夜间住宿组合为半日、一日和两日产品。</div></div>
       </div>
     </div>
     <div class="fb-item">
       <h4><span class="no">02</span>非遗产品有特色，但纯手工产能有限</h4>
       <div class="fb-two">
         <div class="q qa"><div class="qt">调研发现</div><div class="qv">非遗产品有特色，但纯手工制作产能有限。</div></div>
-        <div class="q qc"><div class="qt">建议方向（可讨论）</div><div class="qv">区分体验产品、收藏产品和可标准化文创；不能以简单扩产代替技艺保护。</div></div>
       </div>
     </div>
     <div class="fb-item">
       <h4><span class="no">03</span>青年人才参与仍不足</h4>
       <div class="fb-two">
         <div class="q qa"><div class="qt">调研发现</div><div class="qv">非遗领域已出现返乡大学生参与创新，但整体青年人才参与仍不足。</div></div>
-        <div class="q qc"><div class="qt">建议方向（可讨论）</div><div class="qv">建立高校长期合作，让学生承担内容制作、产品设计和线上传播等可远程任务。</div></div>
       </div>
     </div>
     <div class="fb-item">
       <h4><span class="no">04</span>产业数据分散、更新口径不一</h4>
       <div class="fb-two">
         <div class="q qa"><div class="qt">调研发现</div><div class="qv">游客人次、旅游收入、集体积累等数据年份与单位口径不一，存在冲突。</div></div>
-        <div class="q qc"><div class="qt">建议方向（可讨论）</div><div class="qv">建立年度指标清单，明确统计人、指标定义、数据年份和更新时间。</div></div>
       </div>
     </div>
     <div class="fb-item">
       <h4><span class="no">05</span>医疗养老等公共服务仍有短板</h4>
       <div class="fb-two">
         <div class="q qa"><div class="qt">调研发现</div><div class="qv">医疗养老等公共服务仍有短板（村卫生室以基础设备为主，村医待遇与人才接续问题突出）。</div></div>
-        <div class="q qc"><div class="qt">建议方向（可讨论）</div><div class="qv">图谱可以注明这一约束，但不能把产业增长直接等同于公共服务改善。</div></div>
       </div>
     </div>
   </div>
@@ -851,7 +904,13 @@ section#map{padding-top:40px;}
       <li>《花茂村实践报告》——上海交通大学集成电路学院红芯计划暑期社会实践团调研报告<span class="sr">（调研主线）</span></li>
       <li>访谈记录：《花茂村基层干部采访整合记录》《花茂村纸浆压花画非遗传承人访谈整合记录》<span class="sr">（案例实践现场依据）</span></li>
       <li>人民网党建频道《党建调研行｜以业态之“新”赋能共富之“兴”》(2026.7)：2025 年游客 71.25 万人次、旅游收入突破 2400 万元、集体经济积累 1481 万元、人均可支配收入 29650 元 <a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></li>
-      <li>人民网《花茂村：村民致富有奔头》(2017.9)：2014 年人均可支配收入 10948 元、村集体经济积累 16 万元、2016 年接待游客 68 万人次 <a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></li>
+      <li>人民网《花茂村：村民致富有奔头》(2017.9)：2014 年人均可支配收入 10948 元、2016 年接待游客 68 万人次、旅游收入 3260 万元 <a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></li>
+      <li>贵州日报《守护红色根脉 绽放动人“花茂”》(2026.6)：村集体经济从 2015 年的 16 万元增长至 1418 万元 <a href="https://szb.eyesnews.cn/pad/cont/202606/16/content_182262.html" target="_blank" rel="noopener">原文</a></li>
+      <li>人民日报《赓续红色血脉 奋进发展新程》(2026.9)：花茂村村委会主任彭龙芬、2025 年旅游总收入突破 2400 万元、人均可支配收入 29650 元 <a href="http://paper.people.com.cn/rmrb/pc/content/202609/14/content_30180792.html" target="_blank" rel="noopener">原文</a></li>
+      <li>中国日报网《红色热土孕育新生活》(2026.9)：王豪接手父亲王治强的“红色之家”农家乐；返乡大学生张梦滢以构皮古法造纸制作纸浆压花画 <a href="http://cn.chinadaily.com.cn/a/202609/11/WS6aa38e22e4b09a165c78960e.html" target="_blank" rel="noopener">原文</a></li>
+      <li>人民网《贵州遵义：乡村文旅“电”力足》(2025.5)：母先才用电窑控温，陶器损坏率从 20% 降至 5% <a href="http://ent.people.com.cn/n1/2025/0522/c1012-40485344.html" target="_blank" rel="noopener">原文</a></li>
+      <li>遵义市人民政府网《遵义市花茂村：民族团结与乡村振兴同频共振》(2026.4)：2025 年接待游客突破 100 万人次 <a href="https://www.zunyi.gov.cn/zwgk/zdlygk/mzzj/mzwhbh/202604/t20260413_89989346.html" target="_blank" rel="noopener">原文</a></li>
+      <li>贵州广播电视台《红色书香 花繁叶茂｜王治强的致富故事》(2021.5)：红色之家照片来源 <a href="https://www.gzstv.com/a/0eba669a49564555a910a47a3d2afc1d" target="_blank" rel="noopener">原文</a></li>
       <li>新华网贵州频道《红色热土孕育新生活》(2026.9)：2025 年集体经济积累 1481 万元、人均可支配收入 29650 元 <a href="http://gz.news.cn/20260911/410f2875a4b04f4b8a782797b1041bca/c.html" target="_blank" rel="noopener">原文</a></li>
       <li>贵州省人民政府《总书记来过之后：花茂村的笑容越来越灿烂》(2025.4)：集体收入累计从 26 万元增至 1402 万元 <a href="https://www.guizhou.gov.cn/home/gzyw/202504/t20250417_87533552.html" target="_blank" rel="noopener">原文</a></li>
       <li>遵义市人民政府网《花茂村：总书记话儿记心间，老百姓致富笑开颜》(2025.1)：2023 年接待游客 118 万余人次、旅游总收入 3437 万元 <a href="https://www.zunyi.gov.cn/zwgk/zdlygk/mzzj/mzwhbh/202501/t20250123_86670687.html" target="_blank" rel="noopener">原文</a></li>
@@ -930,15 +989,17 @@ var NODES = [
   {id:'n3', lane:0, name:'古法造纸技艺', chain:'非遗', desc:'外婆传下的古法造纸，与纸浆压花结合，转化为可体验、可带走的文创。'},
   {id:'n4', lane:0, name:'红色文化', chain:'红色', desc:'苟坝会议、马灯精神、红军过境故事，构成研学和乡村旅游的资源底色。'},
   {id:'n5', lane:1, name:'村党组织·村集体', chain:'双链', desc:'“党总支＋合作社＋农户”的统筹核心：土地整合、群众动员、产业组织、利益协调。'},
-  {id:'n6', lane:1, name:'合作社', chain:'农业', desc:'遵义绿动九丰蔬菜种植专业合作社：组织生产、连接农户、提供农业社会化服务。'},
-  {id:'n7', lane:1, name:'农业企业（九丰）', chain:'农业', desc:'山东寿光九丰农业有限公司：导入技术、品种、管理方式与市场经验。'},
+  {id:'n6', lane:1, name:'合作社', chain:'农业', desc:'遵义绿动九丰蔬菜种植专业合作社：组织生产、连接农户，提供育苗、机耕、植保、无人机飞防等农业社会化服务。'},
+  {id:'n7', lane:1, name:'农业企业（九丰）', chain:'农业', desc:'2014 年引入的山东寿光九丰农业科技有限公司：导入技术、品种、管理方式与市场经验，建设现代高效农业园区。'},
   {id:'n8', lane:1, name:'非遗传承人·工坊', chain:'非遗', desc:'土陶传承人母先才、“花茂人家”张胜迪及返乡人才等，传承技艺并参与产品创新。'},
   {id:'n9', lane:1, name:'文旅经营者·农家乐', chain:'非遗', desc:'红色之家等农家乐与民宿经营者，提供餐饮接待、故事讲述与住宿服务。'},
+  {id:'n27', lane:1, name:'种养大户（22 户）', chain:'农业', desc:'全村已培育 22 户种养大户，承接规模化生产、技术推广与订单对接，是村级经营网络的重要一环。'},
   {id:'n10', lane:2, name:'土地流转·规模种植', chain:'农业', desc:'高标准农田建设与宜机化改造后，蔬菜、脆红李、“稻＋”、烤烟等规模种植。'},
   {id:'n11', lane:2, name:'土陶制作·烧制', chain:'非遗', desc:'从塑形到入窑的完整制陶过程；柴窑改电窑是生产方式调整的典型细节。'},
   {id:'n12', lane:2, name:'纸浆压花制作', chain:'非遗', desc:'把传统工序转化为可观看、可参与的手作过程。'},
   {id:'n13', lane:2, name:'红色参观·研学', chain:'红色', desc:'苟坝会议纪念馆及遗址参观，延伸到乡村餐饮与交流场景。'},
   {id:'n14', lane:2, name:'农事体验·认养', chain:'农业', desc:'“我在花茂有块田”：犁地、播种、采摘，让游客从观看田园转向参与农事。'},
+  {id:'n26', lane:2, name:'设施农业（蔬菜大棚）', chain:'农业', desc:'九丰园区内绿动九丰合作社在 360 亩土地上建 34 个蔬菜大棚，种植花菜、西红柿、黄瓜、茄子等，设施化、标准化生产。'},
   {id:'n15', lane:3, name:'农产品', chain:'农业', desc:'露天蔬菜、脆红李、水稻“稻＋”、烤烟等多元农产品；2024 年蔬菜 1400 亩、“稻＋”1214 亩、烤烟 900 亩。'},
   {id:'n16', lane:3, name:'陶艺产品·体验', chain:'非遗', desc:'游客既能看成品，也能亲手拉坯“玩泥巴”。'},
   {id:'n17', lane:3, name:'文创（压花画等）', chain:'非遗', desc:'压花画、小夜灯、冰箱贴——“能带得走的乡愁”。'},
@@ -947,7 +1008,7 @@ var NODES = [
   {id:'n20', lane:4, name:'游客·研学团队', chain:'双链', desc:'2025 年接待游客 71.25 万人次；研学团队是重要的体验与消费群体。'},
   {id:'n21', lane:4, name:'农产品销售·订单', chain:'农业', desc:'订单农业与本地市场直供；合作社向农户和周边村镇扩散技术、市场与信息。'},
   {id:'n22', lane:4, name:'电商·线下特色店', chain:'非遗', desc:'文创产品与特色农产品通过线下店铺和线上渠道触达游客。'},
-  {id:'n23', lane:5, name:'村民增收·集体经济', chain:'双链', desc:'土地租金＋务工工资＋入股分红＋集体收益，“一地多收益”。'},
+  {id:'n23', lane:5, name:'村民增收·集体经济', chain:'双链', desc:'土地租金＋务工工资＋入股分红＋集体收益，“一地多收益”；增值收益农户 70%、集体 30%，合作社累计带动 1000 户脱贫户、发放 170 万元分红、帮助 50 户稳定就业。'},
   {id:'n24', lane:5, name:'文化传承·人才回流', chain:'双链', desc:'非遗从“保护对象”变为“发展资源”，返乡大学生参与产品创新。'},
   {id:'n25', lane:5, name:'问题与约束', chain:'问题', issue:true, desc:'住宿消费不足、非遗手工产能有限、青年人才不足、产业数据分散、公共服务有短板。'}
 ];
@@ -978,6 +1039,11 @@ var EDGES = [
   {f:'n8', t:'n24', w:'吸引返乡'},
   {f:'n12', t:'n22', w:'进入渠道'},
   {f:'n22', t:'n20', w:'触达游客'},
+  {f:'n6', t:'n26', w:'建设运营'},
+  {f:'n7', t:'n26', w:'导入技术'},
+  {f:'n26', t:'n15', w:'设施产出'},
+  {f:'n10', t:'n27', w:'培育大户'},
+  {f:'n27', t:'n15', w:'规模种植'},
   {f:'n25', t:'n18', w:'制约·住宿消费不足'},
   {f:'n25', t:'n8', w:'制约·手工产能有限'},
   {f:'n25', t:'n20', w:'制约·当日游为主'},
@@ -1232,15 +1298,15 @@ function renderLegend(){
 var TOUR_POIS = [
   {id:'pottery', name:'花茂村陶艺馆（母氏陶艺馆）', short:'陶艺馆', icon:'pot', chain:'非遗文旅链', color:'#B9814A',
    x:398, y:462, side:'left',
-   intro:'省级非遗花茂土陶第四代传承人母先才经营，位于陶艺文化创意一条街；游客可参观成品、现场拉坯体验。',
+   intro:'省级非遗花茂土陶第四代传承人母先才经营的母氏陶艺馆，位于陶艺文化创意一条街；游客可参观成品、现场拉坯体验。',
    tag:'制陶 · 体验'},
   {id:'paper', name:'花茂人家 · 古法造纸', short:'造纸体验', icon:'paper', chain:'非遗文旅链', color:'#B9814A',
    x:552, y:416, side:'right',
-   intro:'白泥组黔北民居群中的古法造纸工坊，纸浆压花画、小夜灯、冰箱贴等文创在此制作销售。',
+   intro:'返乡创业者张胜迪 2016 年创办的“花茂人家”造纸工坊（白泥组黔北民居群），以构树皮古法造纸为底，纸浆压花画、小夜灯、冰箱贴等文创在此制作销售。',
    tag:'造纸 · 文创'},
   {id:'redhome', name:'红色之家', short:'红色之家', icon:'house', chain:'非遗文旅链', color:'#B9814A',
    x:218, y:372, side:'left',
-   intro:'2013 年创建的花茂村第一家农家乐（桶井组），盬子鸡与红军故事结合，电视剧《花繁叶茂》取景地之一。',
+   intro:'花茂村第一家农家乐，经营者王治强返乡创办（桶井组）；因院落曾住过红军而得名，盬子鸡与红军故事结合，电视剧《花繁叶茂》取景地之一；据 2026.9 公开报道，现已由王治强之子王豪接手经营。',
    tag:'餐饮 · 故事'},
   {id:'field', name:'我在花茂有块田 · 认养区', short:'认养区', icon:'rice', chain:'农业链', color:'#2E6B4F',
    x:712, y:492, side:'right',
@@ -1440,6 +1506,16 @@ function renderPoiList(){
   });
 }
 
+/* 案例卡“查看点位”按钮：跳转示意图并高亮地标 */
+function bindCaseGoto(){
+  document.querySelectorAll('.cc-goto').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-goto');
+      if (id && window.goLandmark) goLandmark(id);
+    });
+  });
+}
+
 /* ============================================================
    启动
    ============================================================ */
@@ -1449,6 +1525,7 @@ function renderPoiList(){
   renderLegend();
   renderTourMap();
   renderPoiList();
+  bindCaseGoto();
 })();
 </script>
 </body>
