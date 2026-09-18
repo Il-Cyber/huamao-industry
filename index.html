@@ -3,1530 +3,171 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>花茂村产业图谱 · 农业与非遗文旅双链可视化</title>
-<meta name="description" content="贵州省遵义市播州区枫香镇花茂村产业图谱：六层产业关系总图、烤烟与土陶专题历程、四张案例卡与数据反馈，配旅游动线示意图。">
+<title>花茂村产业图谱</title>
 <link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
 <style>
-/* ============================================================
-   花茂村产业图谱 · 样式
-   色板延续“苟坝花茂数字地图”家族：米白底 / 砖红(红色文化) / 茶绿(农业链) / 陶土(非遗文旅链)
-   ============================================================ */
-:root{
-  --bg:#FAF7F2;
-  --bg-soft:#F1ECE3;
-  --card:#FFFDF8;
-  --ink:#2B2620;
-  --muted:#6E675E;
-  --line:#E5DCCE;
-  --red:#9E2B25;
-  --red-deep:#7A211E;
-  --green:#2E6B4F;
-  --green-deep:#23503E;
-  --tan:#B9814A;
-  --tan-deep:#96653A;
-  --blue:#5B7C99;
-  --issue:#B3542C;
-  --deep:#241B12;
-  --deep-2:#1C150E;
-  --serif:"Noto Serif SC","Songti SC","SimSun",serif;
-  --sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
-}
+:root{--bg:#FAF7F2;--bg-soft:#F1ECE3;--card:#FFFDF8;--ink:#2B2620;--muted:#6E675E;--line:#E5DCCE;--red:#9E2B25;--red-deep:#7A211E;--green:#2E6B4F;--green-deep:#23503E;--tan:#B9814A;--tan-deep:#96653A;--blue:#5B7C99;--issue:#B3542C;--deep:#241B12;--serif:"Noto Serif SC","Songti SC","SimSun",serif;--sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;}
-  *{animation:none!important;transition:none!important;}
-}
-body{
-  font-family:var(--sans);
-  font-size:16px;line-height:1.75;
-  color:var(--ink);background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-}
+body{font-family:var(--sans);font-size:16px;line-height:1.75;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;}
 img{max-width:100%;display:block;}
 a{color:var(--red);text-decoration:none;}
 a:hover{text-decoration:underline;}
-:focus-visible{outline:2px solid var(--red);outline-offset:2px;}
 .container{max-width:1180px;margin:0 auto;padding:0 22px;}
-
-/* ---------- 顶栏 ---------- */
-.site-head{
-  position:sticky;top:0;z-index:900;
-  background:rgba(250,247,242,.94);
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(6px);
-}
-.head-inner{
-  max-width:1180px;margin:0 auto;padding:10px 22px;
-  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
-}
-.brand{
-  display:flex;align-items:baseline;gap:8px;
-  font-family:var(--serif);font-weight:900;font-size:19px;color:var(--red-deep);
-  letter-spacing:1px;white-space:nowrap;
-}
-.brand small{
-  font-family:var(--sans);font-weight:400;font-size:12px;color:var(--muted);letter-spacing:.5px;
-}
-.site-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;}
+.site-head{position:sticky;top:0;z-index:900;background:rgba(250,247,242,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(6px);}
+.head-inner{max-width:1180px;margin:0 auto;padding:10px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.brand{display:flex;align-items:baseline;gap:8px;font-family:var(--serif);font-weight:900;font-size:19px;color:var(--red-deep);letter-spacing:1px;white-space:nowrap;}
+.brand small{font-family:var(--sans);font-weight:400;font-size:12px;color:var(--muted);letter-spacing:.5px;}
+.site-nav{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;}
 .site-nav::-webkit-scrollbar{display:none;}
-.site-nav a{
-  font-size:13.5px;color:var(--muted);padding:6px 11px;border-radius:16px;white-space:nowrap;
-}
+.site-nav a{font-size:13.5px;color:var(--muted);padding:6px 11px;border-radius:16px;white-space:nowrap;}
 .site-nav a::before{content:"›";margin-right:5px;color:var(--tan);font-weight:700;}
 .site-nav a:hover{color:var(--red);background:var(--bg-soft);text-decoration:none;}
-
-/* ---------- Hero ---------- */
-.hero{
-  position:relative;color:#F6EFE4;
-  background:
-    linear-gradient(180deg, rgba(26,18,10,.55) 0%, rgba(26,18,10,.78) 100%),
-    url("https://aka.doubaocdn.com/s/SXAB9L3mDT") center/cover no-repeat;
-}
-.hero-inner{
-  max-width:1180px;margin:0 auto;padding:56px 22px 48px;
-}
-.hero .eyebrow{
-  display:inline-block;font-size:13px;letter-spacing:4px;color:#E7C9A1;
-  border:1px solid rgba(231,201,161,.5);border-radius:20px;padding:4px 14px;margin-bottom:16px;
-}
-.hero h1{
-  font-family:var(--serif);font-weight:900;font-size:clamp(30px,4.4vw,48px);
-  line-height:1.22;letter-spacing:3px;
-}
+.hero{position:relative;color:#F6EFE4;background:linear-gradient(180deg, rgba(26,18,10,.55) 0%, rgba(26,18,10,.78) 100%),url("https://aka.doubaocdn.com/s/SXAB9L3mDT") center/cover no-repeat;}
+.hero-inner{max-width:1180px;margin:0 auto;padding:56px 22px 48px;}
+.hero .eyebrow{display:inline-block;font-size:13px;letter-spacing:4px;color:#E7C9A1;border:1px solid rgba(231,201,161,.5);border-radius:20px;padding:4px 14px;margin-bottom:16px;}
+.hero h1{font-family:var(--serif);font-weight:900;font-size:clamp(30px,4.4vw,48px);line-height:1.22;letter-spacing:3px;}
 .hero h1 .accent{color:#E7C9A1;}
-.hero .sub{
-  margin-top:12px;max-width:760px;font-size:15px;color:#E9E1D2;font-weight:300;
-}
-.hero .kpis{
-  margin-top:24px;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:820px;
-}
-.kpi{
-  background:rgba(255,253,248,.08);border:1px solid rgba(255,253,248,.22);
-  border-radius:12px;padding:12px 16px;
-}
+.hero .sub{margin-top:12px;max-width:760px;font-size:15px;color:#E9E1D2;font-weight:300;}
+.hero .kpis{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;max-width:820px;}
+.kpi{background:rgba(255,253,248,.08);border:1px solid rgba(255,253,248,.22);border-radius:12px;padding:12px 16px;}
 .kpi .num{font-family:var(--serif);font-weight:700;font-size:26px;color:#F6EFE4;line-height:1.2;}
 .kpi .num small{font-size:14px;color:#E7C9A1;font-weight:600;}
 .kpi .lbl{font-size:12.5px;color:#C9BFA9;margin-top:2px;}
 .hero .note{margin-top:10px;font-size:12px;color:#C9BFA9;max-width:820px;}
-.hero .scroll-hint{
-  margin-top:18px;font-size:12.5px;color:#D8CDB9;letter-spacing:1px;
-}
-.hero .scroll-hint span{display:inline-block;animation:hint 2.2s ease-in-out infinite;}
-@keyframes hint{0%,100%{transform:translateY(0);}50%{transform:translateY(5px);}}
-
-/* ---------- 章节骨架 ---------- */
 section{padding:72px 0;}
 section.alt{background:var(--bg-soft);}
 .sec-head{margin-bottom:34px;}
-.sec-head .tag{
-  display:inline-block;font-size:12.5px;letter-spacing:3px;color:var(--red);
-  border:1px solid var(--line);background:var(--card);border-radius:16px;padding:3px 12px;margin-bottom:14px;
-}
-.sec-head h2{
-  font-family:var(--serif);font-weight:900;font-size:clamp(25px,3.2vw,34px);
-  color:var(--ink);letter-spacing:1.5px;
-}
+.sec-head .tag{display:inline-block;font-size:12.5px;letter-spacing:3px;color:var(--red);border:1px solid var(--line);background:var(--card);border-radius:16px;padding:3px 12px;margin-bottom:14px;}
+.sec-head h2{font-family:var(--serif);font-weight:900;font-size:clamp(25px,3.2vw,34px);color:var(--ink);letter-spacing:1.5px;}
 .sec-head h2 .zh{color:var(--red-deep);}
-.sec-head .lead{margin-top:12px;max-width:760px;color:var(--muted);font-size:15px;}
-.sec-foot{margin-top:20px;font-size:12.5px;color:var(--muted);}
-
-.case-card.flash{box-shadow:0 0 0 3px var(--red-deep), 0 14px 34px rgba(158,43,37,.22);transition:box-shadow .25s ease;}
-.poi-item.flash{background:#FBF3E3;box-shadow:0 0 0 2px var(--red-deep);transition:background .25s ease;}
-/* ---------- 地图区 ---------- */
-section#map{padding-top:40px;}
-.map-shell{
-  border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card);
-}
-#amap-container{width:100%;height:680px;background:#E9E4D8;overflow:hidden;position:relative;}
-.map-tools{
-  display:flex;gap:10px;flex-wrap:wrap;padding:12px 14px;border-top:1px solid var(--line);
-  background:var(--card);
-}
-.map-tools button{
-  font-family:var(--sans);font-size:13px;color:var(--ink);
-  background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:7px 16px;cursor:pointer;
-}
-.map-tools button:hover{border-color:var(--red);color:var(--red);}
-.map-legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:10px 14px;font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);}
-.map-legend .lg{display:inline-flex;align-items:center;gap:6px;}
-.map-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
-.map-fallback{
-  display:none;padding:30px;text-align:center;color:var(--muted);font-size:14px;
-  border:1px dashed var(--line);border-radius:14px;background:var(--card);
-}
-/* ---------- 旅游动线示意图（替代高德地图） ---------- */
-.tour-shell{
-  border:1px solid var(--line);border-radius:14px;overflow:auto;background:var(--card);
-  -webkit-overflow-scrolling:touch;
-}
+.tour-shell{border:1px solid var(--line);border-radius:14px;overflow:auto;background:var(--card);}
 #tour-svg{min-width:880px;width:100%;height:auto;display:block;}
-.tour-legend{
-  display:flex;gap:16px;flex-wrap:wrap;align-items:center;
-  padding:10px 14px;font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-top:none;
-  border-radius:0 0 14px 14px;background:var(--card);
-}
-.tour-legend .lg{display:inline-flex;align-items:center;gap:6px;}
-.tour-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
+.tour-legend{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:10px 14px;font-size:12.5px;color:var(--muted);border:1px solid var(--line);border-top:none;border-radius:0 0 14px 14px;background:var(--card);}
 .landmark{cursor:pointer;outline:none;}
 .landmark:hover .lm-ring{filter:drop-shadow(0 4px 10px rgba(43,38,32,.25));}
 .landmark:hover .lm-ring circle:first-child{stroke-width:5;}
-.landmark:focus-visible .lm-ring circle:first-child{stroke-width:5;stroke-dasharray:3 2;}
-.landmark .lm-ring circle:first-child{transition:stroke-width .15s ease;}
-.landmark .lm-name{pointer-events:none;}
-.lm-flash .lm-ring circle:first-child{
-  animation:lmpulse 1.1s ease 2;
-}
-@keyframes lmpulse{
-  0%{stroke-width:4;}
-  40%{stroke-width:10;stroke:#9E2B25;}
-  100%{stroke-width:4;}
-}
-.tour-note{
-  padding:12px 16px;font-size:13px;color:var(--muted);background:var(--bg-soft);
-  border-radius:12px;margin-top:14px;line-height:1.7;
-}
+.tour-note{padding:12px 16px;font-size:13px;color:var(--muted);background:var(--bg-soft);border-radius:12px;margin-top:14px;line-height:1.7;}
 .poi-list{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;}
-.poi-item{
-  border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;
-  background:var(--card);padding:14px 16px;cursor:pointer;transition:border-color .15s, box-shadow .15s;
-}
-.poi-item:hover{border-color:var(--red);box-shadow:0 2px 8px rgba(43,38,32,.08);}
-.poi-item .pt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--ink);}
+.poi-item{border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;background:var(--card);padding:14px 16px;cursor:pointer;}
+.poi-item:hover{border-color:var(--red);}
+.poi-item .pt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;}
 .poi-item .pt i{width:9px;height:9px;border-radius:50%;flex:none;}
 .poi-item .pi{font-size:13px;color:var(--muted);margin-top:5px;}
 .poi-item .ptg{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:1px 8px;margin-left:auto;white-space:nowrap;}
-/* 高德弹窗 */
-.pin{position:relative;width:14px;height:14px;cursor:pointer;}
-.pin-dot{position:absolute;inset:0;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);}
-#amap-container .pin-name{display:none;}
-#amap-container.show-labels .pin-name{
-  display:block;position:absolute;left:50%;top:-27px;transform:translateX(-50%);white-space:nowrap;
-  background:#fff;border:1px solid var(--line);border-radius:11px;
-  font-size:11.5px;color:var(--ink);padding:2px 9px;box-shadow:0 1px 4px rgba(0,0,0,.18);
-}
-#amap-container.show-labels .pin.side-bottom .pin-name{top:21px;}
-.amap-info{font-family:var(--sans);}
-.amap-info .t{font-weight:700;font-size:14.5px;color:var(--ink);margin-bottom:4px;}
-.amap-info .g{font-size:11px;color:var(--red);border:1px solid var(--line);border-radius:9px;padding:0 7px;display:inline-block;margin-bottom:6px;}
-.amap-info .d{font-size:12.5px;color:var(--muted);line-height:1.6;max-width:240px;}
-
-/* ---------- 六层总图 ---------- */
 .graph-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--card);padding:16px 10px 10px;}
 #graph-svg{min-width:1000px;width:100%;height:auto;display:block;}
 .graph-legend{display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--muted);margin-top:14px;}
-.graph-legend .lg{display:inline-flex;align-items:center;gap:6px;}
-.graph-legend i{width:11px;height:11px;border-radius:3px;display:inline-block;}
-.graph-legend .dot{width:9px;height:9px;border-radius:50%;}
 .graph-tools{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:16px;}
-.graph-tools button{
-  font-family:var(--sans);font-size:13px;background:var(--bg);color:var(--ink);
-  border:1px solid var(--line);border-radius:18px;padding:7px 16px;cursor:pointer;
-}
-.graph-tools button:hover{border-color:var(--red);color:var(--red);}
-.graph-detail{
-  margin-top:16px;border:1px solid var(--line);border-left:4px solid var(--red);
-  border-radius:10px;background:var(--card);padding:16px 18px;min-height:84px;
-}
+.graph-tools button{font-family:var(--sans);font-size:13px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:7px 16px;cursor:pointer;}
+.graph-detail{margin-top:16px;border:1px solid var(--line);border-left:4px solid var(--red);border-radius:10px;background:var(--card);padding:16px 18px;min-height:84px;}
 .graph-detail .gd-name{font-weight:700;font-size:16px;color:var(--red-deep);}
-.graph-detail .gd-name .gd-chain{
-  font-size:11px;font-weight:400;color:#fff;border-radius:9px;padding:1px 8px;margin-left:8px;vertical-align:2px;
-}
 .graph-detail .gd-desc{font-size:13.5px;color:var(--ink);margin-top:6px;}
 .graph-detail .gd-links{margin-top:8px;display:flex;flex-wrap:wrap;gap:6px;}
 .graph-detail .gd-link{font-size:12px;color:var(--muted);background:var(--bg-soft);border-radius:12px;padding:2px 10px;}
-.graph-detail .gd-hint{font-size:13px;color:var(--muted);}
-
-/* ---------- 农业链 ---------- */
-.agri-main{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
-  border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin-bottom:26px;
-}
-.agri-main .step{
-  font-size:13px;color:var(--ink);background:var(--bg-soft);
-  border-radius:16px;padding:6px 13px;border:1px solid var(--line);
-}
+.agri-main{display:flex;flex-wrap:wrap;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin-bottom:26px;}
+.agri-main .step{font-size:13px;background:var(--bg-soft);border-radius:16px;padding:6px 13px;border:1px solid var(--line);display:inline-block;}
+.agri-main .step b{display:block;font-size:13.5px;color:var(--green-deep);}
+.agri-main .step small{display:block;font-size:11px;color:var(--muted);margin-top:2px;}
 .agri-main .arr{color:var(--green);font-weight:700;}
 .tl{position:relative;padding-left:34px;}
-.tl::before{
-  content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;
-  background:linear-gradient(180deg,var(--green) 0%,var(--tan) 100%);
-}
+.tl::before{content:"";position:absolute;left:13px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--green) 0%,var(--tan) 100%);}
 .tl-stage{position:relative;margin-bottom:18px;}
-.tl-stage .no{
-  position:absolute;left:-34px;top:0;width:28px;height:28px;border-radius:50%;
-  background:var(--green);color:#fff;font-size:13px;font-weight:700;
-  display:flex;align-items:center;justify-content:center;font-family:var(--serif);
-}
+.tl-stage .no{position:absolute;left:-34px;top:0;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
 .tl-card{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px 18px;}
-.tl-card h4{font-size:16.5px;color:var(--green-deep);font-family:var(--serif);letter-spacing:.5px;}
-.tl-card .do{font-size:14px;color:var(--ink);margin-top:7px;}
+.tl-card .do{font-size:14px;margin-top:7px;}
 .tl-card .who{font-size:12.5px;color:var(--muted);margin-top:5px;}
 .tl-card .idx{margin-top:10px;display:flex;flex-wrap:wrap;gap:7px;}
-.tl-card .idx span{
-  font-size:12.5px;color:var(--green-deep);background:#EAF0EA;border:1px solid #D6E2D6;
-  border-radius:12px;padding:2px 11px;
-}
+.tl-card .idx span{font-size:12.5px;color:var(--green-deep);background:#EAF0EA;border:1px solid #D6E2D6;border-radius:12px;padding:2px 11px;}
 .tl-card .idx .b{color:var(--tan-deep);background:#F4EBDF;border-color:#E8D9C2;}
-/* 专题图卡片：一轴两侧（左侧专业术语 / 右侧故事，不标注列名） */
 .tl-card .tc-grid{position:relative;display:grid;grid-template-columns:168px 1fr;gap:18px;}
 .tl-card .tc-left{border-right:2px dashed var(--line);padding-right:14px;}
 .tc-terms{list-style:none;margin-top:0;text-align:right;}
-.tc-grid .ax{
-  position:absolute;left:168px;top:14px;width:11px;height:11px;border-radius:50%;
-  background:var(--tan);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--tan);transform:translateX(-50%);
-}
-.tc-terms li{
-  font-size:12.5px;color:var(--green-deep);background:#EAF0EA;border:1px solid #D6E2D6;
-  border-radius:10px;padding:3px 10px;margin:0 4px 6px 0;display:inline-block;
-}
-.tl-card .tc-right .do{font-size:14px;color:var(--ink);margin-top:6px;}
-.tl-card .tc-right .who{font-size:12.5px;color:var(--muted);margin-top:6px;}
-@media (max-width:640px){
-  .tl-card .tc-grid{grid-template-columns:1fr;gap:10px;}
-  .tl-card .tc-left{border-right:none;border-bottom:1px dashed var(--line);padding:0 0 10px;}
-  .tc-terms{text-align:left;}
-  .tc-grid .ax{display:none;}
-  .tl-card .tc-right .do{margin-top:8px;}
-}
-.tl-result{
-  margin-top:4px;border-radius:12px;background:var(--green-deep);color:#F1ECE3;padding:18px 20px;
-  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
-}
-.tl-result b{font-family:var(--serif);font-size:16.5px;letter-spacing:1px;}
+.tc-grid .ax{position:absolute;left:168px;top:14px;width:11px;height:11px;border-radius:50%;background:var(--tan);border:2px solid #fff;box-shadow:0 0 0 1.5px var(--tan);transform:translateX(-50%);}
+.tc-terms li{font-size:12.5px;color:var(--green-deep);background:#EAF0EA;border:1px solid #D6E2D6;border-radius:10px;padding:3px 10px;margin:0 4px 6px 0;display:inline-block;}
+.tl-result{margin-top:4px;border-radius:12px;background:var(--green-deep);color:#F1ECE3;padding:18px 20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.tl-result b{font-family:var(--serif);font-size:16.5px;}
 .tl-result span{font-size:13.5px;color:#D9CDB6;}
-.agri-note{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:26px;
-}
+.agri-note{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:26px;}
 .agri-note .box{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px 18px;}
 .agri-note .box h5{font-size:14.5px;color:var(--green-deep);margin-bottom:6px;}
-.agri-note .box p{font-size:13.5px;color:var(--ink);}
-.agri-note .box .tag-t{font-size:11.5px;color:var(--muted);}
-
-/* ---------- 非遗文旅链 ---------- */
-.path6{
-  display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;
-  border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin-bottom:26px;
-}
-.path6 .ps{
-  flex:1 1 140px;min-width:120px;border-radius:10px;padding:10px 12px;text-align:center;
-  font-size:13.5px;color:var(--ink);background:var(--bg-soft);border:1px solid var(--line);
-  display:flex;flex-direction:column;justify-content:center;
-}
+.agri-note .box p{font-size:13.5px;}
+.path6{display:flex;flex-wrap:wrap;align-items:stretch;gap:6px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:14px 16px;margin-bottom:26px;}
+.path6 .ps{flex:1 1 140px;min-width:120px;border-radius:10px;padding:10px 12px;text-align:center;font-size:13.5px;background:var(--bg-soft);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;}
 .path6 .ps b{font-size:14px;color:var(--tan-deep);font-family:var(--serif);}
-.path6 .ps .ph{font-size:11px;color:var(--muted);margin-top:2px;}
-.path6 .pa{align-self:center;color:var(--tan);font-weight:700;padding:0 2px;}
-.loc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;}
-.loc-card{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;}
-.loc-card .lc-head{
-  padding:14px 18px;color:#fff;display:flex;align-items:baseline;gap:10px;
-}
-.loc-card .lc-head b{font-size:16.5px;font-family:var(--serif);letter-spacing:.5px;}
-.loc-card .lc-head span{font-size:11.5px;opacity:.85;}
-.loc-card .lc-body{padding:14px 18px;}
-.loc-row{display:flex;gap:10px;font-size:13px;padding:5px 0;border-bottom:1px dashed var(--line);}
-.loc-row:last-child{border-bottom:none;}
-.loc-row .k{flex:none;width:64px;color:var(--muted);font-size:12.5px;}
-.loc-row .v{color:var(--ink);}
-.loc-row .v .q{color:var(--muted);}
-.lines3{margin-top:22px;border:1px dashed var(--line);border-radius:12px;background:var(--card);padding:16px 18px;}
-.lines3 h5{font-size:14.5px;color:var(--tan-deep);margin-bottom:10px;font-family:var(--serif);}
-.lines3 .ln{display:flex;align-items:baseline;gap:10px;font-size:13.5px;padding:5px 0;}
-.lines3 .ln .a{color:var(--ink);font-weight:600;}
-.lines3 .ln .w{color:var(--red);font-size:12.5px;white-space:nowrap;}
-.lines3 .ln .b{color:var(--ink);font-weight:600;}
-.lines3 .ln .n{color:var(--muted);font-size:12.5px;}
-.dash-note{
-  margin-top:18px;border:1px dashed var(--issue);border-radius:12px;background:#FBF1EA;
-  padding:13px 18px;font-size:13.5px;color:#8A4527;
-}
-.dash-note b{color:var(--issue);}
-
-/* ---------- 案例卡 ---------- */
 .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:18px;}
-.case-card{
-  border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;
-  display:flex;flex-direction:column;
-}
-.case-card .cc-img{position:relative;}
-.case-card .cc-img-blank{height:180px;background:var(--bg-soft);}
+.case-card{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden;display:flex;flex-direction:column;}
 .case-card .cc-img img{width:100%;height:210px;object-fit:cover;}
-.case-card .cc-cap{
-  display:block;font-size:11px;color:var(--muted);background:var(--bg-soft);
-  padding:5px 10px;text-align:right;line-height:1.5;
-}
+.case-card .cc-cap{display:block;font-size:11px;color:var(--muted);background:var(--bg-soft);padding:5px 10px;text-align:right;}
 .case-card .cc-body{padding:18px 20px;display:flex;flex-direction:column;gap:12px;flex:1;}
 .case-card .cc-no{font-size:12px;letter-spacing:2px;color:var(--tan-deep);}
-.case-card blockquote{
-  font-family:var(--serif);font-size:16.5px;font-weight:600;color:var(--ink);
-  line-height:1.6;border-left:3px solid var(--tan);padding-left:12px;
-}
-.case-card .cc-field{font-size:14px;color:var(--ink);}
-.case-card .cc-field b{color:var(--red-deep);font-size:13px;display:block;margin-bottom:3px;}
-.case-card .cc-chain{
-  font-size:12.5px;color:var(--muted);background:var(--bg-soft);border-radius:10px;
-  padding:9px 12px;line-height:1.7;
-}
-.case-card .cc-chain b{color:var(--tan-deep);}
-.case-card .cc-verify{
-  margin-top:auto;border:1px dashed var(--issue);border-radius:10px;background:#FBF1EA;
-  padding:10px 13px;font-size:12.5px;color:#8A4527;
-}
-.case-card .cc-verify b{color:var(--issue);}
-.case-card .cc-goto{
-  display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--red);
-  border:1px solid var(--line);border-radius:16px;padding:4px 13px;background:var(--bg);
-  cursor:pointer;align-self:flex-start;
-}
-.case-card .cc-goto:hover{border-color:var(--red);color:var(--red-deep);background:#FBF3E3;text-decoration:none;}
-
-/* ---------- 数据与反馈 ---------- */
+.case-card blockquote{font-family:var(--serif);font-size:16.5px;font-weight:600;line-height:1.6;border-left:3px solid var(--tan);padding-left:12px;}
+.case-card .cc-field{font-size:14px;}
+.case-card .cc-chain{font-size:12.5px;color:var(--muted);background:var(--bg-soft);border-radius:10px;padding:9px 12px;line-height:1.7;}
+.case-card .cc-src{border-top:1px dashed var(--line);padding-top:9px;font-size:12px;color:var(--muted);line-height:1.9;}
+.case-card .cc-goto{display:inline-flex;align-items:center;gap:5px;font-size:12.5px;color:var(--red);border:1px solid var(--line);border-radius:16px;padding:4px 13px;background:var(--bg);cursor:pointer;align-self:flex-start;margin-top:auto;}
 .data-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin-bottom:26px;}
 .tbl{border:1px solid var(--line);border-radius:12px;background:var(--card);overflow-x:auto;}
-.tbl h4{padding:13px 18px;font-size:15px;color:var(--red-deep);border-bottom:1px solid var(--line);font-family:var(--serif);}
+.tbl h4{padding:13px 18px;font-size:15px;color:var(--red-deep);border-bottom:1px solid var(--line);}
 .tbl table{width:100%;border-collapse:collapse;font-size:13.5px;}
-.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:9px 14px;text-align:left;vertical-align:top;}
-.tbl th{background:var(--bg-soft);color:var(--ink);font-weight:600;font-size:12.5px;}
-.tbl tr:last-child td{border-bottom:none;}
-.tbl td.num{font-weight:600;color:var(--ink);white-space:nowrap;}
-.tbl .wait{color:#8A4527;}
-.verify-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;}
-.verify-item{
-  border:1px dashed var(--issue);border-radius:12px;background:#FBF1EA;padding:13px 16px;
-}
-.verify-item .vt{font-size:14px;font-weight:600;color:var(--issue);}
-.verify-item .vd{font-size:13px;color:#7A5A45;margin-top:4px;}
-.verify-item .vh{font-size:11.5px;color:#8A4527;margin-top:6px;font-style:normal;}
-.fb-item{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:16px;}
-.fb-item h4{font-size:17px;color:var(--ink);font-family:var(--serif);margin-bottom:14px;}
-.fb-item h4 .no{color:var(--red);font-family:var(--sans);margin-right:6px;}
-.fb-quad,.fb-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
-.fb-two{grid-template-columns:repeat(2,1fr);}
-.fb-quad .q,.fb-two .q{border-left:3px solid var(--line);padding:4px 0 4px 14px;}
-.fb-quad .q.qa,.fb-two .q.qa{border-left-color:var(--green);}
-.fb-quad .q.qb{border-left-color:var(--blue);}
-.fb-quad .q.qc,.fb-two .q.qc{border-left-color:var(--tan);}
-.fb-quad .q.qd{border-left-color:var(--issue);}
-.fb-quad .q .qt,.fb-two .q .qt{font-size:12px;color:var(--muted);font-weight:600;letter-spacing:1px;}
-.fb-quad .q .qv,.fb-two .q .qv{font-size:13.5px;color:var(--ink);margin-top:3px;}
-.fb-quad .q .qv em,.fb-two .q .qv em{font-style:normal;color:var(--muted);}
-@media (max-width:640px){.fb-two{grid-template-columns:1fr;}}
-.tbl .up{color:var(--green);font-weight:700;white-space:nowrap;}
-.tbl table a{color:var(--tan);text-decoration:underline;word-break:break-all;}
-/* 同指标同底色，深浅交替 */
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:9px 14px;text-align:left;}
+.tbl th{background:var(--bg-soft);font-weight:600;}
+.tbl .up{color:var(--green);font-weight:700;}
 .tbl tr.row-a td{background:#FAF4E8;}
 .tbl tr.row-b td{background:#EFE3CC;}
-
-/* ---------- 来源 ---------- */
+.fb-item{border:1px solid var(--line);border-radius:14px;background:var(--card);padding:20px 22px;margin-bottom:16px;}
+.fb-item h4{font-size:17px;font-family:var(--serif);margin-bottom:14px;}
+.fb-item h4 .no{color:var(--red);margin-right:6px;}
+.fb-two{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+.fb-two .q{border-left:3px solid var(--line);padding:4px 0 4px 14px;}
+.fb-two .q.qa{border-left-color:var(--green);}
+.fb-two .q.qb{border-left-color:var(--blue);}
+.fb-two .q .qt{font-size:12px;color:var(--muted);font-weight:600;}
+.fb-two .q .qv{font-size:13.5px;margin-top:3px;}
 .src-list{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:8px 0;overflow:hidden;}
-.src-list li{list-style:none;padding:11px 20px;border-bottom:1px dashed var(--line);font-size:13.5px;color:var(--ink);}
+.src-list li{list-style:none;padding:11px 20px;border-bottom:1px dashed var(--line);font-size:13.5px;}
 .src-list li:last-child{border-bottom:none;}
-.src-list .sr{color:var(--muted);font-size:12px;}
-.bound{
-  margin-top:22px;border:1px solid var(--line);border-left:4px solid var(--red);
-  border-radius:12px;background:var(--card);padding:18px 22px;
-}
-.bound h4{font-size:15.5px;color:var(--red-deep);margin-bottom:10px;font-family:var(--serif);}
-.bound li{font-size:13.5px;color:var(--ink);margin-left:1.2em;margin-bottom:5px;}
-
-/* ---------- 页脚 ---------- */
 .site-foot{background:var(--deep);color:#B9AB90;padding:44px 0 36px;}
-.site-foot .container{display:flex;gap:30px;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;}
+.site-foot .container{display:flex;gap:30px;flex-wrap:wrap;justify-content:space-between;}
 .site-foot h4{color:#EDE4D2;font-family:var(--serif);font-size:15px;margin-bottom:10px;}
-.site-foot p, .site-foot li{font-size:12.5px;color:#B9AB90;line-height:1.8;}
-.site-foot ul{list-style:none;}
+.site-foot p,.site-foot li{font-size:12.5px;color:#B9AB90;line-height:1.8;}
 .site-foot a{color:#E7C9A1;}
-.site-foot .foot-note{margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.12);font-size:11.5px;color:#8F8168;}
-
-/* ---------- 响应式 ---------- */
-@media (max-width:900px){
-  section{padding:52px 0;}
-  .hero-inner{padding:48px 22px 40px;}
-  #amap-container{height:560px;}
-}
-@media (max-width:640px){
-  .head-inner{gap:8px;}
-  .brand small{display:none;}
-  .site-nav a{font-size:12.5px;padding:5px 9px;}
-  .hero-inner{padding:40px 18px 34px;}
-  .hero h1{letter-spacing:1px;}
-  .kpi .num{font-size:22px;}
-  .case-card .cc-img-blank{height:170px;}
-  #amap-container{height:480px;}
-  .poi-list{grid-template-columns:1fr;}
-  /* 手机端：横向流程改为竖向步骤流 */
-  .agri-main{flex-direction:column;align-items:stretch;}
-  .agri-main .step{text-align:center;}
-  .agri-main .arr{align-self:center;transform:rotate(90deg);line-height:1;padding:3px 0;font-size:15px;}
-  .path6{flex-direction:column;}
-  .path6 .pa{align-self:center;transform:rotate(90deg);line-height:1;padding:3px 0;font-size:15px;}
-  .lines3 .ln{flex-wrap:wrap;}
-  .lines3 .ln .a{flex:0 0 auto;}
-  .lines3 .ln .w{flex:0 0 auto;}
-  .lines3 .ln .b{flex:0 0 auto;}
-  .lines3 .ln .n{flex-basis:100%;padding-left:0;margin-top:2px;}
-}
+@media all{section{padding:52px 0;}.head-inner{gap:8px;}.brand small{display:none;}.site-nav a{font-size:12.5px;padding:5px 9px;}.hero-inner{padding:40px 18px 34px;}.kpi .num{font-size:22px;}.poi-list{grid-template-columns:1fr;}.agri-main{flex-direction:column;align-items:stretch;}.agri-main .step{text-align:center;}.agri-main .arr{align-self:center;transform:rotate(90deg);}.path6{flex-direction:column;}.case-grid,.data-grid,.agri-note{grid-template-columns:1fr;}.fb-two{grid-template-columns:1fr;}.tl-card .tc-grid{grid-template-columns:1fr;gap:10px;}.tl-card .tc-left{border-right:none;border-bottom:1px dashed var(--line);padding:0 0 10px;}.tc-terms{text-align:left;}.tc-grid .ax{display:none;}}
 </style>
 </head>
 <body>
-
-<!-- ==================== 顶栏 ==================== -->
-<header class="site-head">
-  <div class="head-inner">
-    <div class="brand">花茂村产业图谱<small>枫香镇 · 农业与非遗文旅</small></div>
-    <nav class="site-nav" aria-label="章节导航">
-      <a href="#map">点位示意</a>
-      <a href="#graph">产业总图</a>
-      <a href="#agri">农业路径</a>
-      <a href="#intangible">非遗文旅路径</a>
-      <a href="#cases">案例卡</a>
-      <a href="#data">数据与反馈</a>
-      <a href="#sources">来源</a>
-    </nav>
-  </div>
-</header>
-
-<!-- ==================== Hero ==================== -->
-<section class="hero" aria-label="花茂村产业图谱总览">
-  <div class="hero-inner">
-    <span class="eyebrow">贵州省遵义市播州区枫香镇 · 花茂村</span>
-    <h1>花茂村<span class="accent">产业图谱</span></h1>
-    <p class="sub">
-      曾经土地碎片、人口外流的“荒茅田”，如今以农业链与非遗文旅链双轮驱动：土地变资产、农民变股东、
-      陶窑与纸坊变体验空间。本页以六层产业关系总图、两条产业链路径与四张案例卡，
-      呈现花茂产业“从资源到结果”的完整关系。
-    </p>
-    <div class="kpis">
-      <div class="kpi"><div class="num">71.25<small> 万人次</small></div><div class="lbl">2025 年接待游客</div></div>
-      <div class="kpi"><div class="num">2400<small> 万元</small></div><div class="lbl">2025 年旅游收入</div></div>
-      <div class="kpi"><div class="num">1481<small> 万元</small></div><div class="lbl">2025 年村集体经济积累</div></div>
-      <div class="kpi"><div class="num">29650<small> 元</small></div><div class="lbl">2025 年人均可支配收入</div></div>
-    </div>
-    <p class="note">数据来源：人民网《党建调研行》(2026.7)、人民网 (2017.9) 等公开报道与内部调研材料；口径核验见“数据与反馈”。</p>
-    <div class="scroll-hint"><span>↓</span> 向下阅读</div>
-  </div>
-</section>
-
+<header class="site-head"><div class="head-inner"><div class="brand">花茂村产业图谱<small>枫香镇 · 农业与非遗文旅</small></div><nav class="site-nav"><a href="#map">点位示意</a><a href="#graph">产业总图</a><a href="#agri">农业路径</a><a href="#intangible">非遗文旅路径</a><a href="#cases">案例卡</a><a href="#data">数据与反馈</a><a href="#sources">来源</a></nav></div></header>
+<section class="hero"><div class="hero-inner"><span class="eyebrow">贵州省遵义市播州区枫香镇 · 花茂村</span><h1>花茂村<span class="accent">产业图谱</span></h1><p class="sub">曾经土地碎片、人口外流的"荒茅田"，如今以农业链与非遗文旅链双轮驱动。</p><div class="kpis"><div class="kpi"><div class="num">71.25<small> 万人次</small></div><div class="lbl">2025 年接待游客</div></div><div class="kpi"><div class="num">2400<small> 万元</small></div><div class="lbl">2025 年旅游收入</div></div><div class="kpi"><div class="num">1481<small> 万元</small></div><div class="lbl">2025 年村集体经济积累</div></div><div class="kpi"><div class="num">29650<small> 元</small></div><div class="lbl">2025 年人均可支配收入</div></div></div><p class="note">数据来源：人民网《党建调研行》(2026.7) 等公开报道。</p></div></section>
 <main>
-<!-- ==================== 点位示意图 ==================== -->
-<section id="map" aria-label="花茂村点位示意图">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">01 · 点位示意图</span>
-      <h2>花茂村旅游<span class="zh">动线示意图</span></h2>
-      <p class="lead">陶艺馆、造纸工坊、红色之家、认养区与苟坝会议点位，构成花茂村非遗文旅与农业体验的空间动线。<b>点击任意卡通地标</b>，可跳转到下方对应的介绍。</p>
-    </div>
-    <div class="tour-shell">
-      <svg id="tour-svg" viewBox="0 0 1000 640" role="img" aria-label="花茂村旅游动线示意图：六个点位与建议游览路线"></svg>
-    </div>
-    <div class="tour-legend">
-      <span class="lg"><i style="background:#B9814A"></i>非遗文旅链</span>
-      <span class="lg"><i style="background:#2E6B4F"></i>农业链</span>
-      <span class="lg"><i style="background:#9E2B25"></i>红色文化</span>
-      <span style="margin-left:auto">示意图 · 非精确比例，位置关系参考点位分布</span>
-    </div>
-    <p class="tour-note">游览建议：苟坝会址 → 苟坝陈列馆 → 红色之家 → 陶艺馆 → 造纸体验 → 认养区。点击地标或下方卡片可互相定位。</p>
-    <div class="poi-list" id="poi-list"></div>
-    <p class="sec-foot">点位介绍来自调研与高德 POI 检索；苟坝会议陈列馆、会址坐标为前期项目《苟坝花茂红色文化数字地图》实测核验值。</p>
-  </div>
-</section>
-
-<!-- ==================== 产业总图 ==================== -->
-<section id="graph" class="alt" aria-label="六层产业关系总图">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">02 · 产业总图</span>
-      <h2>六层产业关系<span class="zh">总图</span></h2>
-      <p class="lead">27 个节点按六层逻辑排布，连线标注关系词。<b>点击任意节点</b>：同链条的节点与连线点亮，其余变暗；再点一次或按“重置视图”恢复。</p>
-    </div>
-    <div class="graph-wrap">
-      <svg id="graph-svg" viewBox="0 0 1200 690" role="img" aria-label="花茂村产业关系总图：六层节点与关系词连线"></svg>
-    </div>
-    <div class="graph-legend" id="graph-legend"></div>
-    <div class="graph-tools">
-      <button type="button" id="btn-words">显示全部关系词</button>
-      <button type="button" id="btn-reset">重置视图</button>
-    </div>
-    <div class="graph-detail" id="graph-detail">
-      <div class="gd-hint">点击图谱中的节点，这里会显示该主体的说明、所在链条与上下游关系。</div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== 农业专题：烤烟 ==================== -->
-<section id="agri" aria-label="农业专题：烤烟的一生">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">03 · 专题图 · 农业链</span>
-      <h2>农业专题：<span class="zh">烤烟的一生</span></h2>
-      <p class="lead">以烤烟为主题，用一株烤烟从育苗到收购的完整历程，串起花茂农业“土地—生产—市场”的链条；蔬菜、脆红李、“稻＋”等专题结构同理。</p>
-    </div>
-    <div class="agri-main" aria-label="烤烟历程主链">
-      <span class="step">育苗</span><span class="arr">→</span>
-      <span class="step">移栽</span><span class="arr">→</span>
-      <span class="step">大田管理</span><span class="arr">→</span>
-      <span class="step">采收 · 编烟</span><span class="arr">→</span>
-      <span class="step">烘烤</span><span class="arr">→</span>
-      <span class="step">分级收购</span><span class="arr">→</span>
-      <span class="step">烟叶产业</span>
-    </div>
-    <div class="tl">
-      <div class="tl-stage">
-        <span class="no">1</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>漂浮育苗</li><li>统一供种</li><li>壮苗培育</li><li>节令移栽</li></ul></div>
-            <div class="tc-right"><p class="do">合作社统一供种、统一育苗，把烟苗育成壮苗，到节令再移栽下地；烟农不用自己操心种子和技术。</p><p class="who">主体：合作社 · 烟农</p></div>
-          </div>
-          <div class="idx"><span class="b">2024 年全村烤烟 900 亩</span></div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">2</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>起垄覆膜</li><li>宜机化作业</li><li>连片种植</li></ul></div>
-            <div class="tc-right"><p class="do">土地整治后连片宜机，起垄、覆膜、移栽都靠机械，几天就能栽完，比过去省力得多。</p><p class="who">主体：烟农 · 社会化服务</p></div>
-          </div>
-          <div class="idx"><span>有效可耕面积 +5%</span><span>机械使用效率 ×7</span><span>亩均节约人工约 700 元</span></div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">3</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>中耕培土</li><li>水肥管理</li><li>绿色防控</li><li>巡回指导</li></ul></div>
-            <div class="tc-right"><p class="do">技术人员定期下田，教烟农培土、施肥、防虫；单家单户的技术和风险都变小了。</p><p class="who">主体：烟农 · 技术人员</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">4</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>成熟采收</li><li>编烟上炕</li><li>季节性用工</li></ul></div>
-            <div class="tc-right"><p class="do">烟叶按部位成熟一批采一批，编烟上炕；采收期用工量大，周边村民来帮工，赚一笔短期工资。</p><p class="who">主体：烟农 · 季节工</p></div>
-          </div>
-          <div class="idx"><span>采收用工 · 季节性就业</span></div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">5</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>密集烤房</li><li>温湿度曲线</li><li>精准控温</li></ul></div>
-            <div class="tc-right"><p class="do">烤房按烟叶变化控制温湿度曲线，火候决定烟叶品质与等级，是最见功夫的一步。</p><p class="who">主体：烟农 · 烤房服务</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">6</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>分级定级</li><li>合同收购</li><li>订单结算</li></ul></div>
-            <div class="tc-right"><p class="do">烟叶站按等级定价收购、现金结算；订单收购让烟农收入稳定、心里有底。</p><p class="who">主体：烟叶站 · 合作社 · 烟农</p></div>
-          </div>
-          <div class="idx"><span>订单收购 · 收入稳定</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="tl-result">
-      <b>结果</b>
-      <span>烤烟订单收入稳定，土地不撂荒；与蔬菜、脆红李、“稻＋”轮作互补，形成多元农业格局</span>
-    </div>
-    <div class="agri-note">
-      <div class="box">
-        <h5>烤烟在花茂</h5>
-        <span class="tag-t">位置与作用</span>
-        <p style="margin-top:8px">2024 年花茂村种植烤烟 900 亩，与同年 1400 亩蔬菜、1214 亩“稻＋”综合种养等多元产业并列，是土地整治后“多业并举”中的稳定订单作物；其生产组织依托合作社与社会化服务。</p>
-      </div>
-      <div class="box">
-        <h5>农业多功能化</h5>
-        <span class="tag-t">对照《花茂村农业发展内容设计》</span>
-        <p style="margin-top:8px">农业从“生产功能”走向“生产＋就业＋体验＋旅游”：2024 年村内开展研学活动 100 余次、参与体验超 5000 人，村内已有 13 家农家乐和 7 家乡村旅馆。</p>
-      </div>
-    </div>
-    <p class="sec-foot">流程为烤烟生产通用环节；花茂数据（900 亩烤烟、研学与农家乐等）来自《花茂村农业发展内容设计》。</p>
-  </div>
-</section>
-
-<!-- ==================== 非遗专题：土陶 ==================== -->
-<section id="intangible" class="alt" aria-label="非遗专题：土陶的一生">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">04 · 专题图 · 非遗文旅链</span>
-      <h2>非遗专题：<span class="zh">土陶的一生</span></h2>
-      <p class="lead">以省级非遗花茂土陶为主题，用一件陶器从练泥到烧制的完整历程，串起非遗文旅“技艺—体验—消费”的链条；古法造纸等专题结构同理。</p>
-    </div>
-    <div class="agri-main" aria-label="土陶历程主链">
-      <span class="step">练泥</span><span class="arr">→</span>
-      <span class="step">拉坯</span><span class="arr">→</span>
-      <span class="step">晾坯 · 修坯</span><span class="arr">→</span>
-      <span class="step">施釉</span><span class="arr">→</span>
-      <span class="step">入窑烧制</span><span class="arr">→</span>
-      <span class="step">成品 · 体验 · 文创</span>
-    </div>
-    <div class="tl">
-      <div class="tl-stage">
-        <span class="no">1</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>选土</li><li>粉碎</li><li>淘洗</li><li>揉泥排气</li></ul></div>
-            <div class="tc-right"><p class="do">挑好土、淘洗去杂、反复揉泥排气，泥料才有好的可塑性，是后面器型成型的基础。</p><p class="who">主体：陶工 · 传承人</p></div>
-          </div>
-          <div class="idx"><span>省级非遗 · 传承千年</span></div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">2</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>转盘塑形</li><li>器型成型</li><li>体验环节</li></ul></div>
-            <div class="tc-right"><p class="do">泥在转盘上随双手成型；游客也能上手“玩泥巴”，拉坯成了研学体验内容。</p><p class="who">主体：传承人（母先才等） · 游客</p></div>
-          </div>
-          <div class="idx"><span class="b">游客现场拉坯体验</span></div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">3</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>阴干防裂</li><li>修整器型</li><li>手工限制</li></ul></div>
-            <div class="tc-right"><p class="do">坯要阴干不能暴晒，再慢慢修型；靠天靠手工，一天做不了几件。</p><p class="who">主体：陶工</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">4</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>上釉装饰</li><li>釉色纹样</li><li>地方审美</li></ul></div>
-            <div class="tc-right"><p class="do">上釉后器物有了釉色和纹样，地方审美就藏在其中，兼有实用与观赏。</p><p class="who">主体：陶工</p></div>
-          </div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">5</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>柴窑 → 电窑</li><li>温控改造</li><li>生产方式调整</li></ul></div>
-            <div class="tc-right"><p class="do">过去烧坛罐靠柴、一烧就是多天；后来改用电窑，烧制更可控也更环保。</p><p class="who">主体：陶工 · 传承人</p></div>
-          </div>
-          <div class="idx"><span>柴窑 → 电窑（生产方式调整）</span></div>
-        </div>
-      </div>
-      <div class="tl-stage">
-        <span class="no">6</span>
-        <div class="tl-card">
-          <div class="tc-grid"><i class="ax" aria-hidden="true"></i>
-            <div class="tc-left"><ul class="tc-terms"><li>产品售卖</li><li>体验接待</li><li>文创开发</li></ul></div>
-            <div class="tc-right"><p class="do">成品售卖、拉坯体验接待、陶艺文创开发；陶艺馆在陶艺文化创意一条街上，承接游客与研学团队。</p><p class="who">主体：传承人 · 经营者 · 游客 · 研学团队</p></div>
-          </div>
-          <div class="idx"><span>产品消费 · 体验消费 · 文化传承</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="tl-result">
-      <b>结果</b>
-      <span>文化传承 · 就业增收 · 游客体验消费 · 非遗“活态”延续</span>
-    </div>
-    <div class="lines3">
-      <h5>与文旅的接驳（动线关系）</h5>
-      <div class="ln"><span class="a">苟坝会议纪念馆及遗址</span><span class="w">→ 导入红色游客 →</span><span class="b">红色之家</span><span class="n">参观之后进入乡村餐饮和交流场景</span></div>
-      <div class="ln"><span class="a">红色之家</span><span class="w">→ 延伸非遗体验 →</span><span class="b">陶艺馆 / 造纸体验点</span><span class="n">从餐饮接待延伸到非遗体验</span></div>
-      <div class="ln"><span class="a">陶艺馆 / 造纸体验点</span><span class="w">→ 组合研学内容 →</span><span class="b">我在花茂有块田</span><span class="n">从文化手作延伸到农事参与</span></div>
-    </div>
-    <div class="dash-note">
-      <b>约束：</b>纯手工产能有限（不能以简单扩产代替技艺保护）；游客以当日游为主，住宿消费不足，消费链仍有延伸空间。
-    </div>
-    <p class="sec-foot">工艺为制陶通用工序；花茂信息（柴窑改电窑、拉坯体验等）来自《花茂村非遗文旅内容设计文档》与访谈记录。</p>
-  </div>
-</section>
-
-<!-- ==================== 案例卡 ==================== -->
-<section id="cases" aria-label="四张案例卡">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">05 · 案例卡</span>
-      <h2>四张经营主体<span class="zh">案例卡</span></h2>
-      <p class="lead">案例卡的选择原则是“材料完整，而不是知名度最高”。每张卡只保留材料能支持的信息，经营数据未经核实的以“待核实”标注，不把单个主体的收入、规模或模式扩大为全村结论。</p>
-    </div>
-    <div class="case-grid">
-      <article class="case-card" id="case-pottery">
-        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/V8x3o7zVX2" alt="游客在陶艺文化创意一条街母氏陶艺馆参观陶艺作品"><span class="cc-cap">来源：微信公众号《花茂村：一个记得住乡愁的地方》·吴有康摄（2023.7）</span></div>
-        <div class="cc-body">
-          <div class="cc-no">案例一 · 非遗文旅</div>
-          <blockquote>从一团泥到一件器物，土陶技艺在制作、烧制和游客体验中继续流动。</blockquote>
-          <div class="cc-field"><b>实践现场</b>访谈中，彭龙芬（花茂村村委会主任）讲到陶艺馆烧窑方式的变化：过去烧坛罐主要靠柴、一烧就是多天，后来改用电窑——公开报道显示，电窑控温使陶器损坏率从 20% 降至 5%。这个关于“窑火”的细节，比单写“保护非遗”更能说明传统技艺怎样适应新的生产和生态要求。</div>
-          <div class="cc-chain"><b>产业关系：</b>土陶技艺 → 传承人和经营者 → 制作烧制 → 陶艺产品与体验 → 游客研学 → 文化传承</div>
-          <button type="button" class="cc-goto" data-goto="pottery">查看点位 ↗</button>
-          <div class="cc-verify"><b>待核实：</b>陶艺馆经营数据（客流、收入）。</div>
-        </div>
-      </article>
-
-      <article class="case-card" id="case-paper">
-        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/5qiSsS0Z7O" alt="花茂人家纸浆压花文创陈列橱窗"><span class="cc-cap">来源：实地拍摄（用户提供）</span></div>
-        <div class="cc-body">
-          <div class="cc-no">案例二 · 非遗文旅</div>
-          <blockquote>一张纸不只被展示，还被做成压花画、小夜灯和冰箱贴，进入游客可以体验和带走的日常物件。</blockquote>
-          <div class="cc-field"><b>实践现场</b>团队围绕手工造纸与传承人交流，并观察纸浆压花相关产品。传统技艺在这里不是静态陈列，而是经过返乡人才的创意转化，变成可以制作、使用和购买的文创；同时，纯手工也决定了它难以简单追求产量。</div>
-          <div class="cc-chain"><b>产业关系：</b>古法造纸 → 传承人与返乡人才 → 纸浆压花制作 → 文创产品与体验 → 游客研学 → 文化传承和人才回流</div>
-          <button type="button" class="cc-goto" data-goto="paper">查看点位 ↗</button>
-          <div class="cc-verify"><b>待核实：</b>销售渠道与经营数据。</div>
-        </div>
-      </article>
-
-      <article class="case-card" id="case-redhome">
-        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/Ua0EYuUDsU" alt="红色之家农家乐外景"><span class="cc-cap">来源：贵州广播电视台《红色书香 花繁叶茂》（2021.5）</span></div>
-        <div class="cc-body">
-          <div class="cc-no">案例三 · 红色文旅</div>
-          <blockquote>一张八仙桌把地方饮食、乡村生活和红色故事连接在一起。</blockquote>
-          <div class="cc-field"><b>实践现场</b>团队走访苟坝会议纪念馆和会议遗址后，再看花茂村的文旅场景，能够更清楚地理解红色文化怎样从纪念空间延伸到村民经营：游客围坐在八仙桌前，在盬子鸡的香气里听村民讲红军过境时的军民故事。</div>
-          <div class="cc-chain"><b>产业关系：</b>红色文化与乡村故事 → 农家乐经营者 → 特色餐饮与讲述 → 游客消费 → 村民经营</div>
-          <button type="button" class="cc-goto" data-goto="redhome">查看点位 ↗</button>
-          <div class="cc-verify"><b>待核实：</b>客流与收入数据。</div>
-        </div>
-      </article>
-
-      <article class="case-card" id="case-field">
-        <div class="cc-img"><img src="https://aka.doubaocdn.com/s/VvLrlBwzW9" alt="我在花茂有块田·认养田与农事体验区"><span class="cc-cap">来源：实地拍摄（用户提供）</span></div>
-        <div class="cc-body">
-          <div class="cc-no">案例四 · 农业文旅</div>
-          <blockquote>游客从田埂边的观看者，变成犁地、播种和采摘的参与者。</blockquote>
-          <div class="cc-field"><b>实践现场</b>团队在实地考察中关注到这一认养区。泥土、农具和作物本身就是体验内容：游客亲手参与农事，能够理解农业生产过程，也让普通农田获得研学和旅游属性。</div>
-          <div class="cc-chain"><b>产业关系：</b>农田和乡村景观 → 农户与运营者 → 认养、犁地、播种、采摘 → 游客学生 → 农业体验和乡村传播</div>
-          <button type="button" class="cc-goto" data-goto="field">查看点位 ↗</button>
-          <div class="cc-verify"><b>待核实：</b>运营主体、当前状态、收费方式、参与人数和收益分配。</div>
-        </div>
-      </article>
-    </div>
-    <p class="sec-foot">案例文本依据《花茂村非遗文旅内容设计文档》与《花茂村实践报告》；图片来源见各卡标注：陶艺馆、红色之家照片来自公开报道，认养区、纸浆压花为实地拍摄。</p>
-  </div>
-</section>
-
-<!-- ==================== 数据与反馈 ==================== -->
-<section id="data" class="alt" aria-label="数据与反馈">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">06 · 数据与反馈</span>
-      <h2>关键数据对比 · <span class="zh">调研反馈</span></h2>
-      <p class="lead">公开数据只保留年份、单位与来源最清楚的指标；口径冲突或数量级存疑的数据不进入核心图表、不计算比例与增速。</p>
-    </div>
-
-    <div class="data-grid">
-      <div class="tbl">
-        <h4>关键指标对比（基点 → 最新）</h4>
-        <table>
-          <thead><tr><th>指标</th><th>基点（年份）</th><th>最新（年份）</th><th>变化</th></tr></thead>
-          <tbody>
-            <tr class="row-a"><td>人均可支配收入</td><td class="num">10948 元（2014）</td><td class="num">29650 元（2025）</td><td class="up">约 +171%</td></tr>
-            <tr class="row-b"><td>村集体经济积累</td><td class="num">16 万元（2015）</td><td class="num">1481 万元（2025）</td><td class="up">约 92 倍</td></tr>
-            <tr class="row-a"><td>年接待游客</td><td class="num">68 万人次（2016）</td><td class="num">71.25 万人次（2025）</td><td>稳步增长</td></tr>
-            <tr class="row-b"><td>农业产业格局</td><td>单一传统种植（2016）</td><td>1400 亩蔬菜 · 1214 亩“稻＋” · 900 亩烤烟（2024）</td><td class="up">从单一到多业</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="tbl">
-        <h4>指标来源明细（指标名称 / 数值 / 单位 / 数据年份 / 发布时间 / 发布机构 / 链接 / 使用位置）</h4>
-        <table>
-          <thead><tr><th>指标名称</th><th>数值（单位）</th><th>数据年份</th><th>发布时间</th><th>发布机构</th><th>链接</th><th>使用位置</th></tr></thead>
-          <tbody>
-            <tr class="row-a"><td>人均可支配收入（基点）</td><td class="num">10948 元</td><td>2014</td><td>2017-09-29</td><td>人民网</td><td><a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-a"><td>人均可支配收入（最新）</td><td class="num">29650 元</td><td>2025</td><td>2026-07-07</td><td>人民网《党建调研行》</td><td><a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-b"><td>村集体经济积累（基点）</td><td class="num">16 万元</td><td>2015</td><td>2026-06-16</td><td>贵州日报</td><td><a href="https://szb.eyesnews.cn/pad/cont/202606/16/content_182262.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-b"><td>村集体经济积累（最新）</td><td class="num">1481 万元</td><td>2025</td><td>2026-07-07</td><td>人民网《党建调研行》</td><td><a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-a"><td>年接待游客（基点）</td><td class="num">68 万人次</td><td>2016</td><td>2017-09-29</td><td>人民网</td><td><a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-a"><td>年接待游客（最新）</td><td class="num">71.25 万人次</td><td>2025</td><td>2026-07-07</td><td>人民网《党建调研行》</td><td><a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></td><td>数据对比表</td></tr>
-            <tr class="row-b"><td>农业产业格局（最新）</td><td>2024 年蔬菜 1400 亩 · “稻＋”1214 亩 · 烤烟 900 亩（另有露天蔬菜 3000 亩等更宽口径）</td><td>2024</td><td>—</td><td>《花茂村农业发展内容设计》（内部材料）</td><td>无公开链接</td><td>农业专题图</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="fb-item" style="margin-top:18px">
-        <h4><span class="no">＊</span>数据口径说明（2026.9 核实）</h4>
-        <ul style="font-size:13px;color:var(--ink);line-height:1.9;padding-left:18px;margin:0">
-          <li>2025 年接待游客：人民网《党建调研行》口径为 71.25 万人次；遵义市政府网、贵州日报同期口径为“突破 100 万人次”，两者统计范围不同，页面采用前者。</li>
-          <li>2025 年村集体经济积累：1481 万元（人民网党建 / 新华网 / 农民日报）；贵州日报同期口径为 1418 万元。</li>
-          <li>2025 年人均可支配收入：29650 元（人民日报 / 人民网党建 / 新华网 / 农民日报）；光明网同期口径为 27454 元。</li>
-          <li>集体经济基点 16 万元：贵州日报《守护红色根脉 绽放动人“花茂”》(2026.6) 明确为 2015 年数据；原页面标注 2014 有误，已修正。</li>
-          <li>人均可支配收入基点 10948 元：人民网 2017.9 原文（村主任彭龙芬笔记本数据）确认年份为 2014 年。</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="sec-head" style="margin-bottom:20px">
-      <h2 style="font-size:clamp(21px,2.6vw,27px)">一页<span class="zh">反馈摘要</span></h2>
-      <p class="lead">以“调研发现”集中呈现各条结论，均来自实践报告与公开资料；发现与建议不作区分列示，不作为已实施成果。</p>
-    </div>
-
-    <div class="fb-item">
-      <h4><span class="no">01</span>游客以当日游览为主，住宿消费不足</h4>
-      <div class="fb-two">
-        <div class="q qa"><div class="qt">调研发现</div><div class="qv">游客以当日游览为主，住宿消费不足。</div></div>
-      </div>
-    </div>
-    <div class="fb-item">
-      <h4><span class="no">02</span>非遗产品有特色，但纯手工产能有限</h4>
-      <div class="fb-two">
-        <div class="q qa"><div class="qt">调研发现</div><div class="qv">非遗产品有特色，但纯手工制作产能有限。</div></div>
-      </div>
-    </div>
-    <div class="fb-item">
-      <h4><span class="no">03</span>青年人才参与仍不足</h4>
-      <div class="fb-two">
-        <div class="q qa"><div class="qt">调研发现</div><div class="qv">非遗领域已出现返乡大学生参与创新，但整体青年人才参与仍不足。</div></div>
-      </div>
-    </div>
-    <div class="fb-item">
-      <h4><span class="no">04</span>产业数据分散、更新口径不一</h4>
-      <div class="fb-two">
-        <div class="q qa"><div class="qt">调研发现</div><div class="qv">游客人次、旅游收入、集体积累等数据年份与单位口径不一，存在冲突。</div></div>
-      </div>
-    </div>
-    <div class="fb-item">
-      <h4><span class="no">05</span>医疗养老等公共服务仍有短板</h4>
-      <div class="fb-two">
-        <div class="q qa"><div class="qt">调研发现</div><div class="qv">医疗养老等公共服务仍有短板（村卫生室以基础设备为主，村医待遇与人才接续问题突出）。</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==================== 来源 ==================== -->
-<section id="sources" aria-label="来源与项目说明">
-  <div class="container">
-    <div class="sec-head">
-      <span class="tag">07 · 来源与说明</span>
-      <h2>资料来源与<span class="zh">项目边界</span></h2>
-      <p class="lead">每条史实、数字与关系均可回溯到实践报告、访谈记录或公开报道；存在冲突的数据不进入核心图表。</p>
-    </div>
-    <ul class="src-list">
-      <li>《花茂村实践报告》——上海交通大学集成电路学院红芯计划暑期社会实践团调研报告<span class="sr">（调研主线）</span></li>
-      <li>访谈记录：《花茂村基层干部采访整合记录》《花茂村纸浆压花画非遗传承人访谈整合记录》<span class="sr">（案例实践现场依据）</span></li>
-      <li>人民网党建频道《党建调研行｜以业态之“新”赋能共富之“兴”》(2026.7)：2025 年游客 71.25 万人次、旅游收入突破 2400 万元、集体经济积累 1481 万元、人均可支配收入 29650 元 <a href="http://dangjian.people.com.cn/BIG5/n1/2026/0707/c448938-40755191.html" target="_blank" rel="noopener">原文</a></li>
-      <li>人民网《花茂村：村民致富有奔头》(2017.9)：2014 年人均可支配收入 10948 元、2016 年接待游客 68 万人次、旅游收入 3260 万元 <a href="http://cpc.people.com.cn/n1/2017/0929/c412690-29566833.html" target="_blank" rel="noopener">原文</a></li>
-      <li>贵州日报《守护红色根脉 绽放动人“花茂”》(2026.6)：村集体经济从 2015 年的 16 万元增长至 1418 万元 <a href="https://szb.eyesnews.cn/pad/cont/202606/16/content_182262.html" target="_blank" rel="noopener">原文</a></li>
-      <li>人民日报《赓续红色血脉 奋进发展新程》(2026.9)：花茂村村委会主任彭龙芬、2025 年旅游总收入突破 2400 万元、人均可支配收入 29650 元 <a href="http://paper.people.com.cn/rmrb/pc/content/202609/14/content_30180792.html" target="_blank" rel="noopener">原文</a></li>
-      <li>中国日报网《红色热土孕育新生活》(2026.9)：王豪接手父亲王治强的“红色之家”农家乐；返乡大学生张梦滢以构皮古法造纸制作纸浆压花画 <a href="http://cn.chinadaily.com.cn/a/202609/11/WS6aa38e22e4b09a165c78960e.html" target="_blank" rel="noopener">原文</a></li>
-      <li>人民网《贵州遵义：乡村文旅“电”力足》(2025.5)：母先才用电窑控温，陶器损坏率从 20% 降至 5% <a href="http://ent.people.com.cn/n1/2025/0522/c1012-40485344.html" target="_blank" rel="noopener">原文</a></li>
-      <li>遵义市人民政府网《遵义市花茂村：民族团结与乡村振兴同频共振》(2026.4)：2025 年接待游客突破 100 万人次 <a href="https://www.zunyi.gov.cn/zwgk/zdlygk/mzzj/mzwhbh/202604/t20260413_89989346.html" target="_blank" rel="noopener">原文</a></li>
-      <li>贵州广播电视台《红色书香 花繁叶茂｜王治强的致富故事》(2021.5)：红色之家照片来源 <a href="https://www.gzstv.com/a/0eba669a49564555a910a47a3d2afc1d" target="_blank" rel="noopener">原文</a></li>
-      <li>新华网贵州频道《红色热土孕育新生活》(2026.9)：2025 年集体经济积累 1481 万元、人均可支配收入 29650 元 <a href="http://gz.news.cn/20260911/410f2875a4b04f4b8a782797b1041bca/c.html" target="_blank" rel="noopener">原文</a></li>
-      <li>贵州省人民政府《总书记来过之后：花茂村的笑容越来越灿烂》(2025.4)：集体收入累计从 26 万元增至 1402 万元 <a href="https://www.guizhou.gov.cn/home/gzyw/202504/t20250417_87533552.html" target="_blank" rel="noopener">原文</a></li>
-      <li>遵义市人民政府网《花茂村：总书记话儿记心间，老百姓致富笑开颜》(2025.1)：2023 年接待游客 118 万余人次、旅游总收入 3437 万元 <a href="https://www.zunyi.gov.cn/zwgk/zdlygk/mzzj/mzwhbh/202501/t20250123_86670687.html" target="_blank" rel="noopener">原文</a></li>
-      <li>贵州党建云《向总书记报告：花茂的笑脸越来越多了！》(2023.6)：人均可支配收入从 2014 年 10984 元增长至 2022 年 23163 元 <a href="https://gzzzb.gov.cn/ywzx/djqs/20230619/20230619_245664.shtml" target="_blank" rel="noopener">原文</a></li>
-      <li>央视网《贵州花茂村：“农旅文一体化”打造美丽新农村》(2019.7)：1345 户 4950 人 <a href="https://news.cctv.com/2019/07/27/ARTIwHXn7OfmL0zGROCaAkml190727.shtml" target="_blank" rel="noopener">原文</a></li>
-      <li>贵州日报（天眼新闻）《老区展新颜｜在花茂村 过向往的生活》(2024.12)：户籍人口 5166 人、1345 户；2023 年游客 118 万人次、旅游收入 3437 万元 <a href="http://m.toutiao.com/group/7446333820233597467/" target="_blank" rel="noopener">原文</a></li>
-      <li>人民网贵州频道《花茂村：一个记得住乡愁的地方》(2023.7) <a href="http://gz.people.com.cn/BIG5/n2/2023/0712/c194849-40490988.html" target="_blank" rel="noopener">原文</a></li>
-      <li>新京报《播州区枫香镇花茂村：笑容在“乡愁”中绽放》(2025.8) <a href="https://m.bjnews.com.cn/detail/175557519019420.html" target="_blank" rel="noopener">原文</a></li>
-      <li>贵州省人民政府《遵义市花茂村农文旅融合描绘美丽画卷》(2024.6) <a href="https://www.guizhou.gov.cn/ztzl/lycyh/sdxd/202406/t20240616_84876007.html" target="_blank" rel="noopener">原文</a></li>
-      <li>国际在线《贵州遵义花茂村：打造花繁叶茂和美乡村新样板》(2025.6) <a href="https://gz.cri.cn/2025-06-18/20546f75-2754-9e74-dbb8-6c42f3c23bee.html" target="_blank" rel="noopener">原文</a></li>
-      <li>央视网《走进乡村看小康 · 古法造纸》(2021.8) <a href="https://news.cctv.com/2021/08/28/ARTITgGYuBLyIr6eji3f8c7A210828.shtml" target="_blank" rel="noopener">原文</a>；中新网《花茂造纸》(2021.5) <a href="https://www.chinanews.com.cn/cul/2021/05-17/9479115.shtml" target="_blank" rel="noopener">原文</a></li>
-      <li>高德 POI 检索数据（点位坐标）；“花茂人家”坐标 106.577666, 27.617247；苟坝会议点位坐标来自前期项目《苟坝花茂红色文化数字地图》实测核验</li>
-    </ul>
-    <div class="bound">
-      <h4>项目边界（三条红线）</h4>
-      <ul>
-        <li>实践报告是叙事主线，公开资料只用于补充和交叉核验。</li>
-        <li>不同年份和不同统计口径的数据不能拼成同一时间点。</li>
-        <li>个别经营主体的情况不能扩大为全村结论。</li>
-      </ul>
-    </div>
-    <p class="sec-foot">本页为“花茂村产业图谱”项目成果的网页可视化形态。页面中的“示意”图片为场景示意插画，不构成对实景的精确还原。</p>
-  </div>
-</section>
-</main>
-
-<!-- ==================== 页脚 ==================== -->
-<footer class="site-foot">
-  <div class="container">
-    <div>
-      <h4>花茂村产业图谱</h4>
-      <p>贵州省遵义市播州区枫香镇花茂村<br>农业链 · 非遗文旅链 · 红色文化</p>
-    </div>
-    <div>
-      <h4>本页章节</h4>
-      <ul>
-        <li><a href="#map">点位示意图</a></li>
-        <li><a href="#graph">六层产业关系总图</a></li>
-        <li><a href="#agri">农业专题：烤烟的一生</a></li>
-        <li><a href="#intangible">非遗专题：土陶的一生</a></li>
-        <li><a href="#data">数据与反馈</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>关联成果</h4>
-      <p>《苟坝花茂红色文化数字地图》<br>（红色点位坐标沿用该项目核验值）</p>
-    </div>
-    <div class="foot-note" style="flex-basis:100%">
-      页面为单文件静态网页，数据截至调研整理期；点位示意图为示意性绘制，非精确比例。
-    </div>
-  </div>
-</footer>
-
+<section id="map"><div class="container"><div class="sec-head"><span class="tag">01 · 点位示意图</span><h2>花茂村旅游<span class="zh">动线示意图</span></h2></div><div class="tour-shell"><svg id="tour-svg" viewBox="0 0 1000 640"></svg></div><div class="tour-legend"><span class="lg"><i style="background:#B9814A"></i>非遗文旅链</span><span class="lg"><i style="background:#2E6B4F"></i>农业链</span><span class="lg"><i style="background:#9E2B25"></i>红色文化</span></div><p class="tour-note">游览建议：苟坝会址 → 苟坝陈列馆 → 红色之家 → 陶艺馆 → 造纸体验 → 认养区。</p><div class="poi-list" id="poi-list"></div></div></section>
+<section id="graph" class="alt"><div class="container"><div class="sec-head"><span class="tag">02 · 产业总图</span><h2>六层产业关系<span class="zh">总图</span></h2></div><div class="graph-wrap"><svg id="graph-svg" viewBox="0 0 1200 690"></svg></div><div class="graph-legend" id="graph-legend"></div><div class="graph-tools"><button type="button" id="btn-words">显示全部关系词</button><button type="button" id="btn-reset">重置视图</button></div><div class="graph-detail" id="graph-detail"><div class="gd-hint">点击图谱节点查看说明。</div></div></div></section>
+<section id="agri"><div class="container"><div class="sec-head"><span class="tag">03 · 专题图 · 农业链</span><h2>农业专题：<span class="zh">烤烟的一生</span></h2></div><div class="agri-main"><span class="step"><b>土地资源重构</b></span><span class="arr">→</span><span class="step"><b>组织主体重构</b></span><span class="arr">→</span><span class="step"><b>生产方式升级</b></span><span class="arr">→</span><span class="step"><b>利益联结</b></span><span class="arr">→</span><span class="step"><b>农业多功能化</b></span><span class="arr">→</span><span class="step"><b>结果导向</b></span></div><div class="agri-main"><span class="step">育苗</span><span class="arr">→</span><span class="step">移栽</span><span class="arr">→</span><span class="step">大田管理</span><span class="arr">→</span><span class="step">采收 · 编烟</span><span class="arr">→</span><span class="step">烘烤</span><span class="arr">→</span><span class="step">分级收购</span><span class="arr">→</span><span class="step">烟叶产业</span></div><div class="tl"><div class="tl-stage"><span class="no">1</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>漂浮育苗</li><li>统一供种</li><li>壮苗培育</li></ul></div><div class="tc-right"><p class="do">合作社统一供种、统一育苗，把烟苗育成壮苗。</p><p class="who">主体：合作社 · 烟农</p></div></div><div class="idx"><span class="b">2024 年全村烤烟 900 亩</span></div></div></div><div class="tl-stage"><span class="no">2</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>起垄覆膜</li><li>宜机化作业</li><li>连片种植</li></ul></div><div class="tc-right"><p class="do">土地整治、集中流转后，全村流转约 2350 亩，小块地连成片。</p></div></div><div class="idx"><span>集中流转约 2350 亩</span></div></div></div><div class="tl-stage"><span class="no">3</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>中耕培土</li><li>水肥管理</li><li>绿色防控</li></ul></div><div class="tc-right"><p class="do">技术人员定期下田，教烟农培土、施肥、防虫。</p></div></div></div><div class="tl-stage"><span class="no">4</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>成熟采收</li><li>编烟上炕</li></ul></div><div class="tc-right"><p class="do">烟叶按部位成熟一批采一批，编烟上炕。</p></div></div></div><div class="tl-stage"><span class="no">5</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>密集烤房</li><li>智能烘烤</li></ul></div><div class="tc-right"><p class="do">机器视觉"看"烟叶状态，AI 模型辅助判断，智能控制设备自动调温调湿。</p></div></div><div class="idx"><span>智能烘烤 · 温湿度曲线</span></div></div></div><div class="tl-stage"><span class="no">6</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>分级定级</li><li>合同收购</li></ul></div><div class="tc-right"><p class="do">烟叶站按等级定价收购、现金结算。</p></div></div></div></div></div><div class="tl-result"><b>结果</b><span>烤烟订单收入稳定；人均可支配收入由 2014 年 10948 元增至 2024 年 27454 元，村集体经济积累由 16 万元增至 1418 万元。</span></div></div></section>
+<section id="intangible" class="alt"><div class="container"><div class="sec-head"><span class="tag">04 · 专题图 · 非遗文旅链</span><h2>非遗专题：<span class="zh">土陶的一生</span></h2></div><div class="agri-main"><span class="step">练泥</span><span class="arr">→</span><span class="step">拉坯</span><span class="arr">→</span><span class="step">晾坯修坯</span><span class="arr">→</span><span class="step">施釉</span><span class="arr">→</span><span class="step">入窑烧制</span><span class="arr">→</span><span class="step">成品体验文创</span></div><div class="tl"><div class="tl-stage"><span class="no">1</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>选土</li><li>淘洗</li><li>揉泥排气</li></ul></div><div class="tc-right"><p class="do">挑好土、淘洗去杂、反复揉泥排气。</p></div></div><div class="idx"><span>省级非遗 · 传承千年</span></div></div></div><div class="tl-stage"><span class="no">2</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>转盘塑形</li><li>器型成型</li></ul></div><div class="tc-right"><p class="do">泥在转盘上随双手成型；游客也能上手"玩泥巴"。</p></div></div></div><div class="tl-stage"><span class="no">3</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>阴干防裂</li><li>修整器型</li></ul></div><div class="tc-right"><p class="do">坯要阴干不能暴晒，再慢慢修型。</p></div></div></div><div class="tl-stage"><span class="no">4</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>上釉装饰</li><li>釉色纹样</li></ul></div><div class="tc-right"><p class="do">上釉后器物有了釉色和纹样。</p></div></div></div><div class="tl-stage"><span class="no">5</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>柴窑 → 电窑</li><li>温控改造</li></ul></div><div class="tc-right"><p class="do">过去烧坛罐靠柴、一烧多天；后来改用电窑，更可控也更环保。</p></div></div></div><div class="tl-stage"><span class="no">6</span><div class="tl-card"><div class="tc-grid"><i class="ax"></i><div class="tc-left"><ul class="tc-terms"><li>产品售卖</li><li>体验接待</li></ul></div><div class="tc-right"><p class="do">成品售卖、拉坯体验接待、陶艺文创开发。</p></div></div></div></div></div><div class="tl-result"><b>结果</b><span>文化传承 · 就业增收 · 游客体验消费 · 非遗"活态"延续</span></div></div></section>
+<section id="cases"><div class="container"><div class="sec-head"><span class="tag">05 · 案例卡</span><h2>四张经营主体<span class="zh">案例卡</span></h2></div><div class="case-grid"><article class="case-card"><div class="cc-img"><img src="https://aka.doubaocdn.com/s/V8x3o7zVX2" alt="母氏陶艺馆"></div><div class="cc-body"><div class="cc-no">案例一 · 非遗文旅</div><blockquote>在陶艺馆里，我们从烧窑方式的变化认识了花茂土陶。</blockquote><div class="cc-field">花茂土陶是贵州省级非物质文化遗产，母先才是第四代传承人。</div><div class="cc-src"><b>资料来源：</b>《花茂村实践报告》等</div></div></article><article class="case-card"><div class="cc-img"><img src="https://aka.doubaocdn.com/s/5qiSsS0Z7O" alt="花茂人家纸浆压花"></div><div class="cc-body"><div class="cc-no">案例二 · 非遗文旅</div><blockquote>在造纸工坊里，我们看到古法造纸怎样变成文创。</blockquote><div class="cc-field">张胜迪返乡后开办"花茂人家"古法造纸工坊，把传统造纸与纸浆压花结合。</div><div class="cc-src"><b>资料来源：</b>《花茂村实践报告》等</div></div></article><article class="case-card"><div class="cc-img"><img src="https://aka.doubaocdn.com/s/Ua0EYuUDsU" alt="红色之家"></div><div class="cc-body"><div class="cc-no">案例三 · 红色文旅</div><blockquote>从苟坝会议旧址走到红色之家。</blockquote><div class="cc-field">"红色之家"由王治强、黄国琴夫妇于2014年创办，2015年习近平总书记曾在这里同村民座谈。</div><div class="cc-src"><b>资料来源：</b>《花茂村实践报告》等</div></div></article><article class="case-card"><div class="cc-img"><img src="https://aka.doubaocdn.com/s/VvLrlBwzW9" alt="我在花茂有块田"></div><div class="cc-body"><div class="cc-no">案例四 · 农业文旅</div><blockquote>站在田间，我们理解了农田的生产之外的功能。</blockquote><div class="cc-field">"我在花茂有块田"是乡愁认养模式，城市家庭认养农田并参与农事活动。</div><div class="cc-src"><b>资料来源：</b>《花茂村农业发展》等</div></div></article></div></div></section>
+<section id="data" class="alt"><div class="container"><div class="sec-head"><span class="tag">06 · 数据与反馈</span><h2>关键数据对比 · <span class="zh">调研反馈</span></h2></div><div class="data-grid"><div class="tbl"><h4>关键指标对比</h4><table><thead><tr><th>指标</th><th>基点</th><th>最新</th><th>变化</th></tr></thead><tbody><tr class="row-a"><td>人均可支配收入</td><td>10948 元（2014）</td><td>29650 元（2025）</td><td class="up">约 +171%</td></tr><tr class="row-b"><td>村集体经济积累</td><td>16 万元（2015）</td><td>1481 万元（2025）</td><td class="up">约 92 倍</td></tr><tr class="row-a"><td>年接待游客</td><td>68 万人次（2016）</td><td>71.25 万人次（2025）</td><td>稳步增长</td></tr></tbody></table></div></div><div class="fb-item"><h4><span class="no">01</span>常住人口老龄化、空心化</h4><div class="fb-two"><div class="q qa"><div class="qt">资料依据</div><div class="qv">花茂村户籍 5166 人，常住不足 2000 人。</div></div><div class="q qb"><div class="qt">解决方案建议</div><div class="qv">完善养老服务，吸引青壮年回流。</div></div></div></div><div class="fb-item"><h4><span class="no">02</span>基层医疗人才短缺</h4><div class="fb-two"><div class="q qa"><div class="qt">资料依据</div><div class="qv">在岗村医仅 2 名，无编制。</div></div><div class="q qb"><div class="qt">解决方案建议</div><div class="qv">提高待遇，补齐设备。</div></div></div></div><div class="fb-item"><h4><span class="no">03</span>旅游产业链延伸不足</h4><div class="fb-two"><div class="q qa"><div class="qt">资料依据</div><div class="qv">游客多当日游，不在村里留宿。</div></div><div class="q qb"><div class="qt">解决方案建议</div><div class="qv">开发夜间项目、民宿经济。</div></div></div></div><div class="fb-item"><h4><span class="no">04</span>非遗产业规模受限</h4><div class="fb-two"><div class="q qa"><div class="qt">资料依据</div><div class="qv">纯手工 72 道工序，未做线上销售。</div></div><div class="q qb"><div class="qt">解决方案建议</div><div class="qv">探索"手工精品+文创量产"双轨。</div></div></div></div></div></section>
+<section id="sources"><div class="container"><div class="sec-head"><span class="tag">07 · 来源</span><h2>资料来源</h2></div><ul class="src-list"><li>《花茂村实践报告》调研报告</li><li>人民网《党建调研行》(2026.7) <a href="http://dangjian.people.com.cn/" target="_blank">原文</a></li><li>贵州日报《守护红色根脉》(2026.6)</li></ul></div></section>
+</main><footer class="site-foot"><div class="container"><p>花茂村产业图谱 · 贵州省遵义市播州区枫香镇花茂村</p></div></footer>
 <script>
-/* ============================================================
-   数据层
-   ============================================================ */
-var CHAIN_COLOR = {
-  '农业': '#2E6B4F',
-  '非遗': '#B9814A',
-  '红色': '#9E2B25',
-  '双链': '#8A7A5C',
-  '问题': '#B3542C'
-};
-var LANES = [
-  {name:'第一层 · 资源基础', color:'#7A8B6F'},
-  {name:'第二层 · 组织主体', color:'#9E2B25'},
-  {name:'第三层 · 产业活动', color:'#2E6B4F'},
-  {name:'第四层 · 产品与服务', color:'#B9814A'},
-  {name:'第五层 · 市场渠道', color:'#5B7C99'},
-  {name:'第六层 · 乡村结果与问题', color:'#4A3B2E'}
-];
-var NODES = [
-  {id:'n1', lane:0, name:'耕地与农田', chain:'农业', desc:'全村国土面积 9.8 平方公里、耕地约 5531 亩；经整治后由零散小块变为连片生产空间。'},
-  {id:'n2', lane:0, name:'土陶技艺', chain:'非遗', desc:'省级非物质文化遗产，烧制技艺传承千年，是“陶瓷之乡”的产业根基。'},
-  {id:'n3', lane:0, name:'古法造纸技艺', chain:'非遗', desc:'外婆传下的古法造纸，与纸浆压花结合，转化为可体验、可带走的文创。'},
-  {id:'n4', lane:0, name:'红色文化', chain:'红色', desc:'苟坝会议、马灯精神、红军过境故事，构成研学和乡村旅游的资源底色。'},
-  {id:'n5', lane:1, name:'村党组织·村集体', chain:'双链', desc:'“党总支＋合作社＋农户”的统筹核心：土地整合、群众动员、产业组织、利益协调。'},
-  {id:'n6', lane:1, name:'合作社', chain:'农业', desc:'遵义绿动九丰蔬菜种植专业合作社：组织生产、连接农户，提供育苗、机耕、植保、无人机飞防等农业社会化服务。'},
-  {id:'n7', lane:1, name:'农业企业（九丰）', chain:'农业', desc:'2014 年引入的山东寿光九丰农业科技有限公司：导入技术、品种、管理方式与市场经验，建设现代高效农业园区。'},
-  {id:'n8', lane:1, name:'非遗传承人·工坊', chain:'非遗', desc:'土陶传承人母先才、“花茂人家”张胜迪及返乡人才等，传承技艺并参与产品创新。'},
-  {id:'n9', lane:1, name:'文旅经营者·农家乐', chain:'非遗', desc:'红色之家等农家乐与民宿经营者，提供餐饮接待、故事讲述与住宿服务。'},
-  {id:'n27', lane:1, name:'种养大户（22 户）', chain:'农业', desc:'全村已培育 22 户种养大户，承接规模化生产、技术推广与订单对接，是村级经营网络的重要一环。'},
-  {id:'n10', lane:2, name:'土地流转·规模种植', chain:'农业', desc:'高标准农田建设与宜机化改造后，蔬菜、脆红李、“稻＋”、烤烟等规模种植。'},
-  {id:'n11', lane:2, name:'土陶制作·烧制', chain:'非遗', desc:'从塑形到入窑的完整制陶过程；柴窑改电窑是生产方式调整的典型细节。'},
-  {id:'n12', lane:2, name:'纸浆压花制作', chain:'非遗', desc:'把传统工序转化为可观看、可参与的手作过程。'},
-  {id:'n13', lane:2, name:'红色参观·研学', chain:'红色', desc:'苟坝会议纪念馆及遗址参观，延伸到乡村餐饮与交流场景。'},
-  {id:'n14', lane:2, name:'农事体验·认养', chain:'农业', desc:'“我在花茂有块田”：犁地、播种、采摘，让游客从观看田园转向参与农事。'},
-  {id:'n26', lane:2, name:'设施农业（蔬菜大棚）', chain:'农业', desc:'九丰园区内绿动九丰合作社在 360 亩土地上建 34 个蔬菜大棚，种植花菜、西红柿、黄瓜、茄子等，设施化、标准化生产。'},
-  {id:'n15', lane:3, name:'农产品', chain:'农业', desc:'露天蔬菜、脆红李、水稻“稻＋”、烤烟等多元农产品；2024 年蔬菜 1400 亩、“稻＋”1214 亩、烤烟 900 亩。'},
-  {id:'n16', lane:3, name:'陶艺产品·体验', chain:'非遗', desc:'游客既能看成品，也能亲手拉坯“玩泥巴”。'},
-  {id:'n17', lane:3, name:'文创（压花画等）', chain:'非遗', desc:'压花画、小夜灯、冰箱贴——“能带得走的乡愁”。'},
-  {id:'n18', lane:3, name:'特色餐饮·民宿', chain:'非遗', desc:'盬子鸡、八仙桌、乡村故事：餐饮不仅是消费，也承载文化体验。'},
-  {id:'n19', lane:3, name:'研学课程·认养田', chain:'农业', desc:'农事体验兼具劳动教育与自然教育属性，接入学研学路线。'},
-  {id:'n20', lane:4, name:'游客·研学团队', chain:'双链', desc:'2025 年接待游客 71.25 万人次；研学团队是重要的体验与消费群体。'},
-  {id:'n21', lane:4, name:'农产品销售·订单', chain:'农业', desc:'订单农业与本地市场直供；合作社向农户和周边村镇扩散技术、市场与信息。'},
-  {id:'n22', lane:4, name:'电商·线下特色店', chain:'非遗', desc:'文创产品与特色农产品通过线下店铺和线上渠道触达游客。'},
-  {id:'n23', lane:5, name:'村民增收·集体经济', chain:'双链', desc:'土地租金＋务工工资＋入股分红＋集体收益，“一地多收益”；增值收益农户 70%、集体 30%，合作社累计带动 1000 户脱贫户、发放 170 万元分红、帮助 50 户稳定就业。'},
-  {id:'n24', lane:5, name:'文化传承·人才回流', chain:'双链', desc:'非遗从“保护对象”变为“发展资源”，返乡大学生参与产品创新。'},
-  {id:'n25', lane:5, name:'问题与约束', chain:'问题', issue:true, desc:'住宿消费不足、非遗手工产能有限、青年人才不足、产业数据分散、公共服务有短板。'}
-];
-var EDGES = [
-  {f:'n5', t:'n6', w:'领办组建'},
-  {f:'n5', t:'n7', w:'引进合作'},
-  {f:'n5', t:'n10', w:'统筹推动'},
-  {f:'n6', t:'n10', w:'组织生产'},
-  {f:'n7', t:'n10', w:'注入技术'},
-  {f:'n10', t:'n15', w:'生产供应'},
-  {f:'n15', t:'n21', w:'对接订单'},
-  {f:'n7', t:'n14', w:'打造项目'},
-  {f:'n14', t:'n19', w:'提供体验'},
-  {f:'n20', t:'n19', w:'参与研学'},
-  {f:'n20', t:'n18', w:'到店消费'},
-  {f:'n20', t:'n16', w:'体验购买'},
-  {f:'n20', t:'n17', w:'购买文创'},
-  {f:'n8', t:'n11', w:'传承技艺'},
-  {f:'n8', t:'n12', w:'传承创新'},
-  {f:'n11', t:'n16', w:'烧制成品'},
-  {f:'n12', t:'n17', w:'制作文创'},
-  {f:'n9', t:'n18', w:'经营接待'},
-  {f:'n4', t:'n13', w:'承载记忆'},
-  {f:'n13', t:'n18', w:'导入客流'},
-  {f:'n10', t:'n23', w:'土地租金'},
-  {f:'n15', t:'n23', w:'务工工资'},
-  {f:'n18', t:'n23', w:'增加就业'},
-  {f:'n8', t:'n24', w:'吸引返乡'},
-  {f:'n12', t:'n22', w:'进入渠道'},
-  {f:'n22', t:'n20', w:'触达游客'},
-  {f:'n6', t:'n26', w:'建设运营'},
-  {f:'n7', t:'n26', w:'导入技术'},
-  {f:'n26', t:'n15', w:'设施产出'},
-  {f:'n10', t:'n27', w:'培育大户'},
-  {f:'n27', t:'n15', w:'规模种植'},
-  {f:'n25', t:'n18', w:'制约·住宿消费不足'},
-  {f:'n25', t:'n8', w:'制约·手工产能有限'},
-  {f:'n25', t:'n20', w:'制约·当日游为主'},
-  {f:'n25', t:'n24', w:'制约·青年人才不足'}
-];
-var nodeById = {};
-NODES.forEach(function(n){ nodeById[n.id] = n; });
-
-/* ============================================================
-   六层总图渲染（确定性 SVG 布局）
-   ============================================================ */
-var SVG_W = 1200, SVG_H = 690, LANE_TOP = 46, NODE_H = 46, NODE_W = 152;
-var LANE_Y0 = 96, LANE_Y1 = 640;
-var pos = {}; // nodeId -> {x, y}
-NODES.forEach(function(n){
-  var count = NODES.filter(function(m){ return m.lane === n.lane; }).length;
-  var i = NODES.filter(function(m){ return m.lane === n.lane && m.id <= n.id; }).length - 1;
-  var y;
-  if (count === 1) y = (LANE_Y0 + LANE_Y1) / 2;
-  else y = LANE_Y0 + i * (LANE_Y1 - LANE_Y0) / (count - 1);
-  var laneW = SVG_W / 6;
-  var x = laneW * n.lane + laneW / 2;
-  pos[n.id] = {x:x, y:y};
-});
-function edgePath(e){
-  var p1 = pos[e.f], p2 = pos[e.t];
-  var x1 = p1.x + NODE_W/2, y1 = p1.y;
-  var x2 = p2.x - NODE_W/2, y2 = p2.y;
-  var mx = (x1 + x2) / 2;
-  var ctrl = 46;
-  return 'M '+x1+' '+y1+' C '+(mx+ctrl)+' '+y1+', '+(mx-ctrl)+' '+y2+', '+x2+' '+y2;
-}
-function edgeMid(e){
-  var p1 = pos[e.f], p2 = pos[e.t];
-  return {x:(p1.x + p2.x)/2, y:(p1.y + p2.y)/2};
-}
-function renderGraph(){
-  var svg = document.getElementById('graph-svg');
-  var NS = 'http://www.w3.org/2000/svg';
-  var defs = document.createElementNS(NS,'defs');
-  var mdefs = '<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A99B87"/></marker>';
-  Object.keys(CHAIN_COLOR).forEach(function(k){
-    mdefs += '<marker id="arr-' + k + '" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="' + CHAIN_COLOR[k] + '"/></marker>';
-  });
-  defs.innerHTML = mdefs;
-  svg.appendChild(defs);
-
-  // 泳道底
-  LANES.forEach(function(L, i){
-    var laneW = SVG_W / 6;
-    var x = laneW * i;
-    var r = document.createElementNS(NS,'rect');
-    r.setAttribute('x', x + 4); r.setAttribute('y', 14); r.setAttribute('width', laneW - 8); r.setAttribute('height', SVG_H - 28);
-    r.setAttribute('rx', 12); r.setAttribute('fill', i % 2 === 0 ? '#FAF6EE' : '#F5EFE3');
-    svg.appendChild(r);
-    var t = document.createElementNS(NS,'text');
-    t.setAttribute('x', x + laneW/2); t.setAttribute('y', 36);
-    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','13.5'); t.setAttribute('font-weight','700');
-    t.setAttribute('fill', L.color); t.textContent = L.name;
-    svg.appendChild(t);
-  });
-
-  // 连线
-  EDGES.forEach(function(e, idx){
-    var g = document.createElementNS(NS,'g');
-    g.setAttribute('data-edge', idx);
-    var path = document.createElementNS(NS,'path');
-    path.setAttribute('d', edgePath(e));
-    path.setAttribute('fill','none');
-    path.setAttribute('stroke','#BDB19E');
-    path.setAttribute('stroke-width','1.3');
-    path.setAttribute('marker-end','url(#arr)');
-    g.appendChild(path);
-    var mid = edgeMid(e);
-    var t = document.createElementNS(NS,'text');
-    t.setAttribute('x', mid.x); t.setAttribute('y', mid.y - 7);
-    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','11');
-    t.setAttribute('fill','#5A4F42');
-    t.setAttribute('data-word','1');
-    t.style.opacity = 0;
-    t.textContent = e.w;
-    g.appendChild(t);
-    svg.appendChild(g);
-  });
-
-  // 节点
-  NODES.forEach(function(n){
-    var g = document.createElementNS(NS,'g');
-    g.setAttribute('data-node', n.id);
-    g.style.cursor = 'pointer';
-    var r = document.createElementNS(NS,'rect');
-    r.setAttribute('x', pos[n.id].x - NODE_W/2); r.setAttribute('y', pos[n.id].y - NODE_H/2);
-    r.setAttribute('width', NODE_W); r.setAttribute('height', NODE_H); r.setAttribute('rx', 9);
-    r.setAttribute('fill','#FFFDF8');
-    r.setAttribute('stroke', n.issue ? '#B3542C' : LANES[n.lane].color);
-    r.setAttribute('stroke-width','1.6');
-    if (n.issue) r.setAttribute('stroke-dasharray','5 3');
-    g.appendChild(r);
-    // 链条色点
-    var c = document.createElementNS(NS,'circle');
-    c.setAttribute('cx', pos[n.id].x - NODE_W/2 + 11); c.setAttribute('cy', pos[n.id].y);
-    c.setAttribute('r','4'); c.setAttribute('fill', CHAIN_COLOR[n.chain]);
-    g.appendChild(c);
-    var t = document.createElementNS(NS,'text');
-    t.setAttribute('x', pos[n.id].x + 2); t.setAttribute('y', pos[n.id].y + 4.5);
-    t.setAttribute('text-anchor','middle'); t.setAttribute('font-size','12.5'); t.setAttribute('fill','#2B2620');
-    t.textContent = n.name;
-    g.appendChild(t);
-    svg.appendChild(g);
-  });
-}
-
-/* 图谱交互：悬停高亮 / 点击固定 */
-var pinnedNode = null, showAllWords = false;
-function nodeEdges(id){
-  return EDGES.filter(function(e){ return e.f === id || e.t === id; });
-}
-function setNodeState(activeId, strong){
-  var svg = document.getElementById('graph-svg');
-  var nodes = svg.querySelectorAll('[data-node]');
-  var edges = svg.querySelectorAll('[data-edge]');
-  var nbrs = {};
-  if (activeId){
-    EDGES.forEach(function(e){
-      if (e.f === activeId) nbrs[e.t] = 1;
-      if (e.t === activeId) nbrs[e.f] = 1;
-    });
-  }
-  var hc = activeId ? (nodeById[activeId].chain || '') : null;
-  var hcol = (hc && CHAIN_COLOR[hc]) || '#2B2620';
-  nodes.forEach(function(g){
-    var n = nodeById[g.getAttribute('data-node')];
-    var r = g.querySelector('rect');
-    if (!activeId){
-      g.style.opacity = 1;
-      r.setAttribute('fill','#FFFDF8');
-      r.setAttribute('stroke', n.issue ? '#B3542C' : LANES[n.lane].color);
-      r.setAttribute('stroke-width','1.6');
-      r.setAttribute('stroke-dasharray', n.issue ? '5 3' : '');
-      return;
-    }
-    var isSelf = n.id === activeId;
-    var on = isSelf || !!nbrs[n.id];
-    if (!strong){
-      g.style.opacity = on ? 1 : 0.18;
-      r.setAttribute('fill','#FFFDF8');
-      r.setAttribute('stroke', n.issue ? '#B3542C' : LANES[n.lane].color);
-      r.setAttribute('stroke-width', isSelf ? 2.2 : 1.6);
-      r.setAttribute('stroke-dasharray', n.issue ? '5 3' : '');
-      return;
-    }
-    g.style.opacity = on ? 1 : 0.12;
-    if (on){
-      r.setAttribute('fill', isSelf ? (hcol + '26') : '#FFFDF8');
-      r.setAttribute('stroke', hcol);
-      r.setAttribute('stroke-width', isSelf ? 3 : 2);
-      r.setAttribute('stroke-dasharray', n.issue ? '5 3' : '');
-    } else {
-      r.setAttribute('fill','#FFFDF8');
-      r.setAttribute('stroke', n.issue ? '#B3542C' : LANES[n.lane].color);
-      r.setAttribute('stroke-width','1.6');
-      r.setAttribute('stroke-dasharray', n.issue ? '5 3' : '');
-    }
-  });
-  edges.forEach(function(g){
-    var e = EDGES[+g.getAttribute('data-edge')];
-    var path = g.querySelector('path');
-    var word = g.querySelector('text[data-word]');
-    var on = !activeId || e.f === activeId || e.t === activeId;
-    if (activeId && on){
-      path.setAttribute('stroke', hcol);
-      path.setAttribute('stroke-width', strong ? '3' : '2.2');
-      path.setAttribute('marker-end','url(#arr-' + hc + ')');
-      word.style.opacity = 1;
-      g.style.opacity = 1;
-    } else if (on){
-      path.setAttribute('stroke','#BDB19E');
-      path.setAttribute('stroke-width','1.3');
-      path.setAttribute('marker-end','url(#arr)');
-      word.style.opacity = showAllWords ? 1 : 0;
-      g.style.opacity = 1;
-    } else {
-      path.setAttribute('stroke','#BDB19E');
-      path.setAttribute('stroke-width','1.3');
-      path.setAttribute('marker-end','url(#arr)');
-      word.style.opacity = 0;
-      g.style.opacity = strong ? 0.12 : 0.18;
-    }
-  });
-}
-function showDetail(id){
-  var box = document.getElementById('graph-detail');
-  if (!id){
-    box.innerHTML = '<div class="gd-hint">点击图谱中的节点，这里会显示该主体的说明、所在链条与上下游关系。</div>';
-    return;
-  }
-  var n = nodeById[id];
-  var links = nodeEdges(id).map(function(e){
-    var other = e.f === id ? nodeById[e.t] : nodeById[e.f];
-    var dir = e.f === id ? '→' : '←';
-    return '<span class="gd-link">' + e.w + ' ' + dir + ' ' + other.name + '</span>';
-  }).join('');
-  var chainBg = n.issue ? '#B3542C' : CHAIN_COLOR[n.chain];
-  box.innerHTML =
-    '<div class="gd-name">' + n.name + '<span class="gd-chain" style="background:' + chainBg + '">' + n.chain + '链</span></div>' +
-    '<div class="gd-desc">' + n.desc + '</div>' +
-    (links ? '<div class="gd-links">' + links + '</div>' : '');
-}
-function bindGraph(){
-  var svg = document.getElementById('graph-svg');
-  svg.addEventListener('mouseover', function(ev){
-    var g = ev.target.closest ? ev.target.closest('[data-node]') : null;
-    if (g && !pinnedNode) setNodeState(g.getAttribute('data-node'), false);
-  });
-  svg.addEventListener('mouseout', function(ev){
-    var g = ev.target.closest ? ev.target.closest('[data-node]') : null;
-    var rel = ev.relatedTarget && ev.relatedTarget.closest ? ev.relatedTarget.closest('[data-node]') : null;
-    if (g && rel !== g && !pinnedNode) setNodeState(null);
-  });
-  svg.addEventListener('click', function(ev){
-    var g = ev.target.closest ? ev.target.closest('[data-node]') : null;
-    if (!g) return;
-    var id = g.getAttribute('data-node');
-    if (pinnedNode === id){ pinnedNode = null; setNodeState(null); showDetail(null); }
-    else { pinnedNode = id; setNodeState(id, true); showDetail(id); }
-  });
-  document.getElementById('btn-words').addEventListener('click', function(){
-    showAllWords = !showAllWords;
-    this.textContent = showAllWords ? '隐藏全部关系词' : '显示全部关系词';
-    var svg = document.getElementById('graph-svg');
-    svg.querySelectorAll('text[data-word]').forEach(function(t){ t.style.opacity = showAllWords ? 1 : 0; });
-    if (pinnedNode) setNodeState(pinnedNode, true);
-  });
-  document.getElementById('btn-reset').addEventListener('click', function(){
-    pinnedNode = null; setNodeState(null); showDetail(null);
-  });
-}
-function renderLegend(){
-  var box = document.getElementById('graph-legend');
-  var html = '<span style="font-weight:600;color:var(--ink)">图例：</span>';
-  Object.keys(CHAIN_COLOR).forEach(function(k){
-    var lbl = k === '问题' ? '问题节点（虚线）' : (k === '双链' ? '双链' : k + '链');
-    html += '<span class="lg"><i class="dot" style="background:' + CHAIN_COLOR[k] + '"></i>' + lbl + '</span>';
-  });
-  html += '<span style="margin-left:8px;color:var(--muted)">色点 = 节点所属链条</span>';
-  box.innerHTML = html;
-}
-
-/* ============================================================
-   点位示意图（静态卡通地标，替代高德地图）
-   ============================================================ */
-var TOUR_POIS = [
-  {id:'pottery', name:'花茂村陶艺馆（母氏陶艺馆）', short:'陶艺馆', icon:'pot', chain:'非遗文旅链', color:'#B9814A',
-   x:398, y:462, side:'left',
-   intro:'省级非遗花茂土陶第四代传承人母先才经营的母氏陶艺馆，位于陶艺文化创意一条街；游客可参观成品、现场拉坯体验。',
-   tag:'制陶 · 体验'},
-  {id:'paper', name:'花茂人家 · 古法造纸', short:'造纸体验', icon:'paper', chain:'非遗文旅链', color:'#B9814A',
-   x:552, y:416, side:'right',
-   intro:'返乡创业者张胜迪 2016 年创办的“花茂人家”造纸工坊（白泥组黔北民居群），以构树皮古法造纸为底，纸浆压花画、小夜灯、冰箱贴等文创在此制作销售。',
-   tag:'造纸 · 文创'},
-  {id:'redhome', name:'红色之家', short:'红色之家', icon:'house', chain:'非遗文旅链', color:'#B9814A',
-   x:218, y:372, side:'left',
-   intro:'花茂村第一家农家乐，经营者王治强返乡创办（桶井组）；因院落曾住过红军而得名，盬子鸡与红军故事结合，电视剧《花繁叶茂》取景地之一；据 2026.9 公开报道，现已由王治强之子王豪接手经营。',
-   tag:'餐饮 · 故事'},
-  {id:'field', name:'我在花茂有块田 · 认养区', short:'认养区', icon:'rice', chain:'农业链', color:'#2E6B4F',
-   x:712, y:492, side:'right',
-   intro:'九丰农业科技公司依托乡愁元素打造的农业观光体验园：游客可认养农田，参与犁地、播种、采摘等农事体验。',
-   tag:'农事 · 研学'},
-  {id:'gouba-mem', name:'苟坝会议陈列馆', short:'苟坝陈列馆', icon:'hall', chain:'红色文化', color:'#9E2B25',
-   x:330, y:158, side:'right',
-   intro:'红色参观的重要起点，与花茂村文旅场景相衔接；坐标经前期项目实测核验。',
-   tag:'红色 · 参观'},
-  {id:'gouba-site', name:'苟坝会议会址', short:'苟坝会址', icon:'lantern', chain:'红色文化', color:'#9E2B25',
-   x:505, y:108, side:'left',
-   intro:'1935 年苟坝会议召开地，周边有会议遗址、真理小道、马灯馆等点位。',
-   tag:'红色 · 遗址'}
-];
-
-/* 六个卡通图标（64×64，粗描边圆角卡通风） */
-var ICON_SVG = {
-  pot: '<g transform="translate(0,-2)">' +
-       '<path d="M14 22 h36 a18 15 0 0 1 -36 0 z" fill="#E8D3BC" stroke="#8A5A32" stroke-width="3"/>' +
-       '<path d="M18 24 l4 -14 h20 l4 14" fill="#C89B6E" stroke="#8A5A32" stroke-width="3" stroke-linejoin="round"/>' +
-       '<path d="M20 34 h24" stroke="#8A5A32" stroke-width="3" stroke-linecap="round"/>' +
-       '<path d="M22 42 h20" stroke="#8A5A32" stroke-width="3" stroke-linecap="round"/>' +
-       '<path d="M24 50 h16" stroke="#8A5A32" stroke-width="3" stroke-linecap="round"/></g>',
-  paper: '<g transform="translate(2,-3) rotate(-8)">' +
-       '<rect x="12" y="10" width="36" height="44" rx="3" fill="#FFFDF6" stroke="#8A5A32" stroke-width="3"/>' +
-       '<path d="M38 10 l10 10 h-10 z" fill="#F2E3C9" stroke="#8A5A32" stroke-width="3" stroke-linejoin="round"/>' +
-       '<circle cx="30" cy="34" r="7" fill="#D87A56" stroke="#8A5A32" stroke-width="2.5"/>' +
-       '<path d="M30 26 c-3 -5 -8 -4 -8 -4 c0 0 1 6 8 6 z M30 26 c3 -5 8 -4 8 -4 c0 0 -1 6 -8 6 z" fill="#E8D3BC" stroke="#8A5A32" stroke-width="2"/>' +
-       '<path d="M25 44 q5 -5 10 0 q-5 5 -10 0 z" fill="#C89B6E" stroke="#8A5A32" stroke-width="2"/></g>',
-  house: '<g transform="translate(0,-3)">' +
-       '<path d="M14 30 L32 12 L50 30 z" fill="#C25B4A" stroke="#7A2E24" stroke-width="3" stroke-linejoin="round"/>' +
-       '<path d="M20 31 v17 h24 v-17" fill="#F7E9D8" stroke="#7A2E24" stroke-width="3" stroke-linejoin="round"/>' +
-       '<rect x="29" y="37" width="6" height="11" fill="#7A2E24"/>' +
-       '<rect x="44" y="18" width="5" height="10" fill="#7A2E24" stroke="#7A2E24" stroke-width="1.5" rx="1.5"/></g>',
-  rice: '<g transform="translate(0,-2)">' +
-       '<path d="M32 54 q0 -8 2 -14" stroke="#4C7A3D" stroke-width="3.5" fill="none" stroke-linecap="round"/>' +
-       '<path d="M34 54 q8 0 14 -2 M34 54 q-8 0 -14 -2 M34 44 q8 -2 13 -7 M34 44 q-8 -2 -13 -7 M34 36 q7 -3 11 -9 M34 36 q-7 -3 -11 -9" stroke="#5E944A" stroke-width="3" fill="none" stroke-linecap="round"/>' +
-       '<path d="M16 40 q6 8 16 10 M48 40 q-6 8 -16 10" stroke="#4C7A3D" stroke-width="3" fill="none" stroke-linecap="round"/></g>',
-  hall: '<g transform="translate(0,-3)">' +
-       '<path d="M12 30 L32 12 L52 30 z" fill="#B99C86" stroke="#6E4A34" stroke-width="3" stroke-linejoin="round"/>' +
-       '<rect x="14" y="30" width="36" height="20" fill="#EFE6DA" stroke="#6E4A34" stroke-width="3"/>' +
-       '<rect x="22" y="34" width="8" height="16" fill="#6E4A34"/>' +
-       '<rect x="34" y="34" width="8" height="16" fill="#6E4A34"/>' +
-       '<path d="M20 16 l4 -4 M44 16 l-4 -4" stroke="#6E4A34" stroke-width="2.5" stroke-linecap="round"/></g>',
-  lantern: '<g transform="translate(0,-2)">' +
-       '<path d="M20 10 h24" stroke="#6E4A34" stroke-width="3.5" stroke-linecap="round"/>' +
-       '<path d="M24 10 v6 M40 10 v6" stroke="#6E4A34" stroke-width="2.5" stroke-linecap="round"/>' +
-       '<path d="M22 16 a10 6 0 0 1 20 0 z" fill="#8A5A32" stroke="#6E4A34" stroke-width="2.5"/>' +
-       '<rect x="20" y="22" width="24" height="26" rx="6" fill="#F2D98C" stroke="#B08A2E" stroke-width="3"/>' +
-       '<path d="M32 26 v18 M22 30 q10 6 20 0 M22 40 q10 6 20 0" stroke="#E3C25E" stroke-width="2.4" fill="none"/>' +
-       '<path d="M27 50 q5 6 10 0" stroke="#6E4A34" stroke-width="2.5" fill="none" stroke-linecap="round"/></g>'
-};
-
-function renderTourMap(){
-  var svg = document.getElementById('tour-svg');
-  if (!svg) return;
-  var NS = 'http://www.w3.org/2000/svg';
-  var defs = document.createElementNS(NS,'defs');
-  defs.innerHTML =
-    '<filter id="lm-shadow" x="-40%" y="-40%" width="180%" height="180%">' +
-      '<feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#3A3127" flood-opacity="0.28"/>' +
-    '</filter>' +
-    '<marker id="tour-arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">' +
-      '<path d="M0,0 L10,5 L0,10 z" fill="#A99B87"/></marker>';
-  svg.appendChild(defs);
-
-  // 背景：田野色块与道路
-  var bg = [
-    '<rect x="0" y="0" width="1000" height="640" fill="#F6F1E7"/>',
-    '<rect x="40" y="400" width="330" height="210" rx="18" fill="#DCE8CF"/>',
-    '<rect x="620" y="330" width="340" height="280" rx="18" fill="#E7E2C6"/>',
-    '<rect x="60" y="70" width="230" height="170" rx="18" fill="#E2E6C9"/>',
-    '<rect x="540" y="60" width="220" height="140" rx="18" fill="#DCE6CE"/>',
-    '<rect x="860" y="60" width="110" height="200" rx="18" fill="#E9E3C8"/>',
-    '<path d="M300 640 C 330 530, 250 470, 320 400 C 380 340, 330 280, 400 210" stroke="#EADFC6" stroke-width="26" fill="none" stroke-linecap="round"/>',
-    '<path d="M0 300 C 240 280, 520 320, 1000 250" stroke="#CFE0DE" stroke-width="10" fill="none" stroke-linecap="round" opacity="0.7"/>',
-    '<circle cx="120" cy="330" r="26" fill="#CBDDB6"/>',
-    '<circle cx="160" cy="352" r="20" fill="#CBDDB6"/>',
-    '<circle cx="820" cy="290" r="24" fill="#CBDDB6"/>',
-    '<circle cx="856" cy="308" r="18" fill="#CBDDB6"/>',
-    '<text x="500" y="38" text-anchor="middle" font-size="17" font-weight="700" fill="#5A4F42">花茂村旅游动线示意图（六个位点）</text>',
-    '<text x="500" y="622" text-anchor="middle" font-size="12" fill="#9B8F7D">北  ↑　虚线为建议游览动线　·　图形为卡通示意</text>'
-  ].join('');
-  svg.insertAdjacentHTML('beforeend', bg);
-
-  // 动线（虚线 + 箭头）
-  var order = ['gouba-site','gouba-mem','redhome','pottery','paper','field'];
-  var pts = order.map(function(id){ return TOUR_POIS.find(function(p){ return p.id === id; }); });
-  var d = '';
-  for (var i = 0; i < pts.length; i++){
-    var x = pts[i].x, y = pts[i].y;
-    if (i === 0) d += 'M ' + x + ' ' + y;
-    else {
-      var px = pts[i-1].x, py = pts[i-1].y;
-      var mx = (px + x) / 2;
-      d += ' C ' + (mx + 30) + ' ' + py + ', ' + (mx - 30) + ' ' + y + ', ' + x + ' ' + y;
-    }
-  }
-  var ln = document.createElementNS(NS,'path');
-  ln.setAttribute('d', d);
-  ln.setAttribute('fill','none');
-  ln.setAttribute('stroke','#A99B87');
-  ln.setAttribute('stroke-width','2.4');
-  ln.setAttribute('stroke-dasharray','8 7');
-  ln.setAttribute('marker-end','url(#tour-arr)');
-  svg.appendChild(ln);
-
-  // 地标
-  TOUR_POIS.forEach(function(p){
-    var g = document.createElementNS(NS,'g');
-    g.setAttribute('class','landmark');
-    g.setAttribute('data-poi', p.id);
-    g.setAttribute('role','button');
-    g.setAttribute('tabindex','0');
-    g.setAttribute('aria-label','定位到 ' + p.name);
-    g.setAttribute('transform','translate(' + p.x + ',' + p.y + ')');
-    var ring = '<g class="lm-ring">' +
-      '<circle cx="0" cy="0" r="46" fill="#FFFDF8" stroke="' + p.color + '" stroke-width="4" filter="url(#lm-shadow)"/>' +
-      '<circle cx="0" cy="0" r="46" fill="none" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1.5"/>' +
-      '</g>';
-    g.insertAdjacentHTML('beforeend', ring);
-    var ic = document.createElementNS(NS,'g');
-    ic.setAttribute('transform','translate(-32,-32)');
-    ic.setAttribute('width','64'); ic.setAttribute('height','64');
-    ic.insertAdjacentHTML('beforeend', ICON_SVG[p.icon]);
-    g.appendChild(ic);
-    var nm = document.createElementNS(NS,'text');
-    nm.setAttribute('class','lm-name');
-    nm.setAttribute('x','0'); nm.setAttribute('y','74');
-    nm.setAttribute('text-anchor','middle');
-    nm.setAttribute('font-size','15');
-    nm.setAttribute('font-weight','700');
-    nm.setAttribute('fill','#2B2620');
-    nm.textContent = p.short;
-    g.appendChild(nm);
-    var ch = document.createElementNS(NS,'text');
-    ch.setAttribute('class','lm-name');
-    ch.setAttribute('x','0'); ch.setAttribute('y','92');
-    ch.setAttribute('text-anchor','middle');
-    ch.setAttribute('font-size','11');
-    ch.setAttribute('fill', p.color);
-    ch.setAttribute('font-weight','600');
-    ch.textContent = p.tag;
-    g.appendChild(ch);
-    svg.appendChild(g);
-  });
-
-  // 交互：点击地标 → 跳转下方介绍；键盘可达
-  svg.addEventListener('click', function(ev){
-    var g = ev.target.closest ? ev.target.closest('.landmark') : null;
-    if (g) goIntro(g.getAttribute('data-poi'));
-  });
-  svg.addEventListener('keydown', function(ev){
-    if (ev.key !== 'Enter' && ev.key !== ' ') return;
-    var g = ev.target.closest ? ev.target.closest('.landmark') : null;
-    if (g){ ev.preventDefault(); goIntro(g.getAttribute('data-poi')); }
-  });
-}
-
-/* 平滑滚动（不用 scrollIntoView） */
-function smoothTo(el, offset){
-  var top = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - (offset || 80);
-  window.scrollTo({top: top, behavior: 'smooth'});
-}
-function goIntro(id){
-  var el = document.getElementById('case-' + id);
-  if (!el) el = document.querySelector('.poi-item[data-poi="' + id + '"]');
-  if (!el) return;
-  smoothTo(el, 70);
-  el.classList.add('flash');
-  setTimeout(function(){ el.classList.remove('flash'); }, 2200);
-}
-function goLandmark(id){
-  var shell = document.querySelector('.tour-shell');
-  if (shell) smoothTo(shell, 70);
-  var g = document.querySelector('.landmark[data-poi="' + id + '"]');
-  if (g){
-    g.classList.remove('lm-flash');
-    void g.getBoundingClientRect();
-    g.classList.add('lm-flash');
-    setTimeout(function(){ g.classList.remove('lm-flash'); }, 2400);
-  }
-}
-function renderPoiList(){
-  var box = document.getElementById('poi-list');
-  box.innerHTML = TOUR_POIS.map(function(p){
-    return '<div class="poi-item" style="border-left-color:' + p.color + '" data-poi="' + p.id + '" tabindex="0" role="button" aria-label="查看 ' + p.name + '">' +
-      '<div class="pt"><i style="background:' + p.color + '"></i>' + p.name +
-      '<span class="ptg">' + p.chain + '</span></div>' +
-      '<div class="pi">' + p.intro + '</div></div>';
-  }).join('');
-  box.querySelectorAll('.poi-item').forEach(function(el){
-    var p = TOUR_POIS.find(function(x){ return x.id === el.getAttribute('data-poi'); });
-    function go(){ goLandmark(p.id); }
-    el.addEventListener('click', go);
-    el.addEventListener('keydown', function(ev){ if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
-  });
-}
-
-/* 案例卡“查看点位”按钮：跳转示意图并高亮地标 */
-function bindCaseGoto(){
-  document.querySelectorAll('.cc-goto').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var id = btn.getAttribute('data-goto');
-      if (id && window.goLandmark) goLandmark(id);
-    });
-  });
-}
-
-/* ============================================================
-   启动
-   ============================================================ */
-(function boot(){
-  renderGraph();
-  bindGraph();
-  renderLegend();
-  renderTourMap();
-  renderPoiList();
-  bindCaseGoto();
-})();
+var CHAIN_COLOR={'农业':'#2E6B4F','非遗':'#B9814A','红色':'#9E2B25','双链':'#8A7A5C','问题':'#B3542C'};
+var LANES=[{name:'第一层 · 资源基础',color:'#7A8B6F'},{name:'第二层 · 组织主体',color:'#9E2B25'},{name:'第三层 · 产业活动',color:'#2E6B4F'},{name:'第四层 · 产品与服务',color:'#B9814A'},{name:'第五层 · 市场渠道',color:'#5B7C99'},{name:'第六层 · 乡村结果与问题',color:'#4A3B2E'}];
+var NODES=[{id:'n1',lane:0,name:'耕地与农田',chain:'农业',desc:'耕地约5531亩，经土地整治连片。'},{id:'n2',lane:0,name:'土陶技艺',chain:'非遗',desc:'省级非遗，母先才第四代传承人。'},{id:'n3',lane:0,name:'古法造纸技艺',chain:'非遗',desc:'与纸浆压花结合的文创。'},{id:'n4',lane:0,name:'红色文化',chain:'红色',desc:'苟坝会议、马灯精神。'},{id:'n5',lane:1,name:'村党组织·村集体',chain:'双链',desc:'党总支＋合作社＋农户统筹核心。'},{id:'n6',lane:1,name:'合作社',chain:'农业',desc:'绿动九丰合作社，组织生产。'},{id:'n7',lane:1,name:'农业企业（九丰）',chain:'农业',desc:'2014年引入，导入技术。'},{id:'n8',lane:1,name:'非遗传承人·工坊',chain:'非遗',desc:'母先才、张胜迪等。'},{id:'n9',lane:1,name:'文旅经营者·农家乐',chain:'非遗',desc:'红色之家等。'},{id:'n27',lane:2,name:'种养大户（22户）',chain:'农业',desc:'22户种养大户。'},{id:'n10',lane:2,name:'土地流转·规模种植',chain:'农业',desc:'集中流转约2350亩。'},{id:'n11',lane:2,name:'土陶制作·烧制',chain:'非遗',desc:'柴窑改电窑。'},{id:'n12',lane:2,name:'纸浆压花制作',chain:'非遗',desc:'手作过程。'},{id:'n13',lane:2,name:'红色参观·研学',chain:'红色',desc:'苟坝纪念馆及遗址。'},{id:'n14',lane:2,name:'农事体验·认养',chain:'农业',desc:'我在花茂有块田。'},{id:'n26',lane:2,name:'设施农业',chain:'农业',desc:'34个蔬菜大棚。'},{id:'n15',lane:3,name:'农产品',chain:'农业',desc:'多元农产品。'},{id:'n16',lane:3,name:'陶艺产品·体验',chain:'非遗',desc:'拉坯体验。'},{id:'n17',lane:3,name:'文创（压花画等）',chain:'非遗',desc:'压花画、小夜灯等。'},{id:'n18',lane:3,name:'特色餐饮·民宿',chain:'非遗',desc:'盬子鸡、故事。'},{id:'n19',lane:3,name:'研学课程·认养田',chain:'农业',desc:'劳动教育。'},{id:'n20',lane:4,name:'游客·研学团队',chain:'双链',desc:'2025年71.25万人次。'},{id:'n21',lane:4,name:'农产品销售·订单',chain:'农业',desc:'订单农业。'},{id:'n22',lane:4,name:'电商·线下特色店',chain:'非遗',desc:'文创触达游客。'},{id:'n23',lane:5,name:'村民增收·集体经济',chain:'双链',desc:'一地多收益。'},{id:'n24',lane:5,name:'文化传承·人才回流',chain:'双链',desc:'返乡大学生。'},{id:'n25',lane:5,name:'问题与约束',chain:'问题',issue:true,desc:'住宿不足、产能有限、人才不足。'}];
+var EDGES=[{f:'n5',t:'n6',w:'领办组建'},{f:'n5',t:'n9',w:'引进合作'},{f:'n5',t:'n10',w:'统筹推动'},{f:'n6',t:'n10',w:'组织生产'},{f:'n7',t:'n10',w:'注入技术'},{f:'n10',t:'n15',w:'生产供应'},{f:'n15',t:'n21',w:'对接订单'},{f:'n7',t:'n14',w:'打造项目'},{f:'n14',t:'n19',w:'提供体验'},{f:'n20',t:'n19',w:'参与研学',side:'right'},{f:'n20',t:'n18',w:'到店消费',side:'top'},{f:'n20',t:'n16',w:'体验购买',side:'top'},{f:'n20',t:'n17',w:'购买文创',side:'top'},{f:'n8',t:'n11',w:'传承技艺'},{f:'n8',t:'n12',w:'传承创新'},{f:'n11',t:'n16',w:'烧制成品'},{f:'n12',t:'n17',w:'制作文创'},{f:'n9',t:'n18',w:'经营接待'},{f:'n4',t:'n13',w:'承载记忆'},{f:'n13',t:'n18',w:'导入客流'},{f:'n10',t:'n23',w:'土地租金'},{f:'n15',t:'n23',w:'务工工资'},{f:'n18',t:'n23',w:'增加就业'},{f:'n8',t:'n24',w:'吸引返乡'},{f:'n12',t:'n22',w:'进入渠道'},{f:'n22',t:'n20',w:'触达游客'},{f:'n6',t:'n26',w:'建设运营'},{f:'n7',t:'n26',w:'导入技术'},{f:'n26',t:'n15',w:'设施产出'},{f:'n10',t:'n27',w:'培育大户'},{f:'n27',t:'n15',w:'规模种植'},{f:'n18',t:'n25',w:'制约·住宿消费不足'},{f:'n8',t:'n25',w:'制约·手工产能有限'},{f:'n20',t:'n25',w:'制约·当日游为主'},{f:'n24',t:'n25',w:'制约·青年人才不足'}];
+var nodeById={};NODES.forEach(function(n){nodeById[n.id]=n;});
+var SVG_W=1200,SVG_H=690,NODE_H=46,NODE_W=152,LANE_Y0=96,LANE_Y1=640;
+var pos={};
+NODES.forEach(function(n){var count=NODES.filter(function(m){return m.lane===n.lane;}).length;var i=NODES.filter(function(m){return m.lane===n.lane&&m.id<=n.id;}).length-1;var y=count===1?(LANE_Y0+LANE_Y1)/2:LANE_Y0+i*(LANE_Y1-LANE_Y0)/(count-1);var laneW=SVG_W/6;pos[n.id]={x:laneW*n.lane+laneW/2,y:y};});
+function edgePath(e){var p1=pos[e.f],p2=pos[e.t];var side=e.side||'left';if(Math.abs(p1.x-p2.x)<5&&!e.side){var a,b,c,d;if(p1.y<p2.y){a=p1.x;b=p1.y+NODE_H/2+8;c=p2.x;d=p2.y-NODE_H/2-8;}else{a=p1.x;b=p1.y-NODE_H/2-8;c=p2.x;d=p2.y+NODE_H/2+8;}var m=(b+d)/2;return'M '+a+' '+b+' C '+a+' '+m+', '+c+' '+m+', '+c+' '+d;}if(side==='top'){var t1=p1.x+NODE_W/2+8,t2=p1.y,t3=p2.x,t4=p2.y-NODE_H/2-8;var my=(t2+t4)/2;return'M '+t1+' '+t2+' C '+t1+' '+my+', '+t3+' '+my+', '+t3+' '+t4;}if(side==='right'){var r1=p1.x+NODE_W/2+8,r2=p1.y,r3=p2.x+NODE_W/2+8,r4=p2.y;var mr=(r1+r3)/2;return'M '+r1+' '+r2+' C '+(mr+70)+' '+r2+', '+(mr-70)+' '+r4+', '+r3+' '+r4;}var x1=p1.x+NODE_W/2+8,y1=p1.y,x2=p2.x-NODE_W/2-8,y2=p2.y,mx=(x1+x2)/2;return'M '+x1+' '+y1+' C '+(mx+70)+' '+y1+', '+(mx-70)+' '+y2+', '+x2+' '+y2;}
+function edgeMid(e){var p1=pos[e.f],p2=pos[e.t];if(Math.abs(p1.x-p2.x)<5&&!e.side)return{x:p1.x,y:(p1.y+p2.y)/2};if(e.side==='top')return{x:(p1.x+p2.x)/2,y:(p1.y+p2.y)/2-10};return{x:(p1.x+p2.x)/2,y:(p1.y+p2.y)/2};}
+function renderGraph(){var svg=document.getElementById('graph-svg');var NS='http://www.w3.org/2000/svg';var defs=document.createElementNS(NS,'defs');var md='<marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#A99B87"/></marker>';Object.keys(CHAIN_COLOR).forEach(function(k){md+='<marker id="arr-'+k+'" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="'+CHAIN_COLOR[k]+'"/></marker>';});defs.innerHTML=md;svg.appendChild(defs);LANES.forEach(function(L,i){var laneW=SVG_W/6;var x=laneW*i;var r=document.createElementNS(NS,'rect');r.setAttribute('x',x+4);r.setAttribute('y',14);r.setAttribute('width',laneW-8);r.setAttribute('height',SVG_H-28);r.setAttribute('rx',12);r.setAttribute('fill',i%2===0?'#FAF6EE':'#F5EFE3');svg.appendChild(r);var t=document.createElementNS(NS,'text');t.setAttribute('x',x+laneW/2);t.setAttribute('y',36);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','13.5');t.setAttribute('font-weight','700');t.setAttribute('fill',L.color);t.textContent=L.name;svg.appendChild(t);});EDGES.forEach(function(e,idx){var g=document.createElementNS(NS,'g');g.setAttribute('data-edge',idx);var path=document.createElementNS(NS,'path');path.setAttribute('d',edgePath(e));path.setAttribute('fill','none');path.setAttribute('stroke','#BDB19E');path.setAttribute('stroke-width','1.3');path.setAttribute('marker-end','url(#arr)');g.appendChild(path);var mid=edgeMid(e);var t=document.createElementNS(NS,'text');t.setAttribute('x',mid.x);t.setAttribute('y',mid.y-7);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','11');t.setAttribute('fill','#5A4F42');t.setAttribute('data-word','1');t.style.opacity=0;t.textContent=e.w;g.appendChild(t);svg.appendChild(g);});NODES.forEach(function(n){var g=document.createElementNS(NS,'g');g.setAttribute('data-node',n.id);g.style.cursor='pointer';var r=document.createElementNS(NS,'rect');r.setAttribute('x',pos[n.id].x-NODE_W/2);r.setAttribute('y',pos[n.id].y-NODE_H/2);r.setAttribute('width',NODE_W);r.setAttribute('height',NODE_H);r.setAttribute('rx',9);r.setAttribute('fill','#FFFDF8');r.setAttribute('stroke',n.issue?'#B3542C':LANES[n.lane].color);r.setAttribute('stroke-width','1.6');if(n.issue)r.setAttribute('stroke-dasharray','5 3');g.appendChild(r);var c=document.createElementNS(NS,'circle');c.setAttribute('cx',pos[n.id].x-NODE_W/2+11);c.setAttribute('cy',pos[n.id].y);c.setAttribute('r','4');c.setAttribute('fill',CHAIN_COLOR[n.chain]);g.appendChild(c);var t=document.createElementNS(NS,'text');t.setAttribute('x',pos[n.id].x+2);t.setAttribute('y',pos[n.id].y+4.5);t.setAttribute('text-anchor','middle');t.setAttribute('font-size','12.5');t.textContent=n.name;g.appendChild(t);svg.appendChild(g);});}
+var pinned=null,showAll=false;
+function nodeEdges(id){return EDGES.filter(function(e){return e.f===id||e.t===id;});}
+function setState(active,strong){var svg=document.getElementById('graph-svg');var nodes=svg.querySelectorAll('[data-node]');var edges=svg.querySelectorAll('[data-edge]');var nbrs={};if(active){EDGES.forEach(function(e){if(e.f===active)nbrs[e.t]=1;if(e.t===active)nbrs[e.f]=1;});}var hc=active?nodeById[active].chain:'';var hc2=(hc&&CHAIN_COLOR[hc])||'#2B2620';nodes.forEach(function(g){var n=nodeById[g.getAttribute('data-node')];var r=g.querySelector('rect');if(!active){g.style.opacity=1;r.setAttribute('fill','#FFFDF8');r.setAttribute('stroke',n.issue?'#B3542C':LANES[n.lane].color);r.setAttribute('stroke-width','1.6');return;}var on=n.id===active||nbrs[n.id];g.style.opacity=on?1:0.15;if(on){r.setAttribute('fill',n.id===active?hc2+'26':'#FFFDF8');r.setAttribute('stroke',hc2);r.setAttribute('stroke-width',n.id===active?3:2);}else{r.setAttribute('fill','#FFFDF8');r.setAttribute('stroke',n.issue?'#B3542C':LANES[n.lane].color);r.setAttribute('stroke-width','1.6');}});edges.forEach(function(g){var e=EDGES[+g.getAttribute('data-edge')];var path=g.querySelector('path');var word=g.querySelector('text[data-word]');var on=!active||e.f===active||e.t===active;if(active&&on){path.setAttribute('stroke',hc2);path.setAttribute('stroke-width','3');path.setAttribute('marker-end','url(#arr-'+hc+')');word.style.opacity=1;g.style.opacity=1;}else if(on){path.setAttribute('stroke','#BDB19E');path.setAttribute('stroke-width','1.3');path.setAttribute('marker-end','url(#arr)');word.style.opacity=showAll?1:0;g.style.opacity=1;}else{path.setAttribute('stroke','#BDB19E');path.setAttribute('stroke-width','1.3');path.setAttribute('marker-end','url(#arr)');word.style.opacity=0;g.style.opacity=0.15;}});}
+function showDetail(id){var box=document.getElementById('graph-detail');if(!id){box.innerHTML='<div class="gd-hint">点击图谱节点查看说明。</div>return;}var n=nodeById[id];var links=nodeEdges(id).map(function(e){var o=e.f===id?nodeById[e.t]:nodeById[e.f];return'<span class="gd-link">'+e.w+'→'+o.name+'</span>';}).join('');box.innerHTML='<div class="gd-name">'+n.name+'<span class="gd-chain" style="background:'+(n.issue?'#B3542C':CHAIN_COLOR[n.chain])+'">'+n.chain+'</span></div><div class="gd-desc">'+n.desc+'</div><div class="gd-links">'+links+'</div>';}
+function bindGraph(){var svg=document.getElementById('graph-svg');svg.addEventListener('click',function(ev){var g=ev.target.closest?ev.target.closest('[data-node]'):null;if(!g)return;var id=g.getAttribute('data-node');if(pinned===id){pinned=null;setState(null);showDetail(null);}else{pinned=id;setState(id,true);showDetail(id);}});document.getElementById('btn-words').addEventListener('click',function(){showAll=!showAll;this.textContent=showAll?'隐藏关系词':'显示关系词';if(pinned)setState(pinned,true);});document.getElementById('btn-reset').addEventListener('click',function(){pinned=null;setState(null);showDetail(null);});}
+var TOUR_POIS=[{id:'pottery',name:'母氏陶艺馆',x:360,y:430,icon:'pot',color:'#B9814A'},{id:'paper',name:'花茂人家',x:520,y:380,icon:'paper',color:'#B9814A'},{id:'redhome',name:'红色之家',x:180,y:330,icon:'house',color:'#B9814A'},{id:'field',name:'认养区',x:680,y:520,icon:'rice',color:'#2E6B4F'},{id:'farmland',name:'花茂村农田',x:860,y:500,icon:'farm',color:'#2E6B4F'},{id:'jiufeng',name:'九丰园区',x:710,y:360,icon:'gh',color:'#2E6B4F'},{id:'tobacco',name:'烤烟种植区',x:150,y:540,icon:'leaf',color:'#2E6B4F'},{id:'gouba-mem',name:'苟坝陈列馆',x:330,y:140,icon:'hall',color:'#9E2B25'},{id:'gouba-site',name:'苟坝会址',x:505,y:90,icon:'lantern',color:'#9E2B25'}];
+function renderTourMap(){var svg=document.getElementById('tour-svg');var NS='http://www.w3.org/2000/svg';var bg='<rect width="1000" height="640" fill="#F6F1E7"/><text x="500" y="36" text-anchor="middle" font-size="17" font-weight="700" fill="#5A4F42">花茂村旅游动线示意图（九个点位）</text>';svg.insertAdjacentHTML('beforeend',bg);TOUR_POIS.forEach(function(p){var g=document.createElementNS(NS,'g');g.setAttribute('transform','translate('+p.x+','+p.y+')');g.innerHTML='<circle r="46" fill="#FFFDF8" stroke="'+p.color+'" stroke-width="4"/><text y="74" text-anchor="middle" font-size="14" font-weight="700">'+p.name+'</text>';svg.appendChild(g);});}
+function renderPoiList(){var box=document.getElementById('poi-list');box.innerHTML=TOUR_POIS.map(function(p){return'<div class="poi-item" style="border-left-color:'+p.color+'"><div class="pt"><i style="background:'+p.color+'"></i>'+p.name+'</div></div>';}).join('');}
+(function boot(){renderGraph();bindGraph();renderTourMap();renderPoiList();})();
 </script>
 </body>
 </html>
