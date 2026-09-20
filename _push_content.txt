@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
@@ -1673,3 +1673,4 @@ function bindCaseGoto(){
 </script>
 </body>
 </html>
+

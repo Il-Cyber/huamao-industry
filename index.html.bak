@@ -500,17 +500,15 @@ section#map{padding-top:40px;}
 }
 /* 关键指标对比表：手机上改为卡片堆叠，不再按四列硬挤 */
 @media all{
-  .tbl table.compare{display:block;width:100%;min-width:0;table-layout:auto;border-collapse:collapse;}
+  .tbl table.compare{table-layout:auto;width:100%;min-width:0;}
   .tbl table.compare thead{display:none;}
-  .tbl table.compare tbody{display:block;width:100%;}
-  .tbl table.compare tbody tr{display:block;width:100%;margin-bottom:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 16px;box-sizing:border-box;}
+  .tbl table.compare tbody tr{display:block;margin-bottom:10px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 14px;}
   .tbl table.compare tbody tr.row-a{background:#FAF4E8;}
   .tbl table.compare tbody tr.row-b{background:#EFE3CC;}
-  .tbl table.compare tbody td{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border:none;border-bottom:1px dashed var(--line);padding:8px 0;word-break:keep-all;overflow-wrap:anywhere;text-align:right;}
+  .tbl table.compare tbody td{display:flex;justify-content:space-between;align-items:baseline;gap:14px;border:none;border-bottom:1px dashed var(--line);padding:7px 0;white-space:normal;word-break:break-word;text-align:right;}
   .tbl table.compare tbody td:last-child{border-bottom:none;}
   .tbl table.compare tbody td::before{content:attr(data-label);font-size:12px;color:var(--muted);flex:none;text-align:left;}
-  .tbl table.compare tbody td>span,.tbl table.compare tbody td.num,.tbl table.compare tbody td.up{flex:1 1 auto;text-align:right;min-width:0;}
-  .tbl table.compare tbody td:first-child{display:block;font-weight:700;color:var(--ink);font-size:15px;border-bottom:1px solid var(--line);margin-bottom:6px;padding:4px 0 8px;text-align:left;}
+  .tbl table.compare tbody td:first-child{display:block;font-weight:700;color:var(--ink);font-size:15px;border-bottom:1px solid var(--line);margin-bottom:4px;padding:4px 0 8px;}
   .tbl table.compare tbody td:first-child::before{content:none;}
   .tbl table.compare tbody td.num,.tbl table.compare tbody td.up{font-weight:700;font-size:14px;}
 }
