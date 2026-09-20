@@ -171,9 +171,10 @@ section#map{padding-top:40px;}
 .tour-legend .lg{display:inline-flex;align-items:center;gap:6px;}
 .tour-legend i{width:10px;height:10px;border-radius:50%;display:inline-block;}
 .landmark{cursor:pointer;outline:none;}
-.landmark:hover .lm-ring{filter:drop-shadow(0 4px 10px rgba(43,38,32,.25));}
-.landmark:hover .lm-ring circle:first-child{stroke-width:5;}
-.landmark:focus-visible .lm-ring circle:first-child{stroke-width:5;stroke-dasharray:3 2;}
+.landmark:not(.clickable){cursor:default;}
+.landmark.clickable:hover .lm-ring{filter:drop-shadow(0 4px 10px rgba(43,38,32,.25));}
+.landmark.clickable:hover .lm-ring circle:first-child{stroke-width:5;}
+.landmark.clickable:focus-visible .lm-ring circle:first-child{stroke-width:5;stroke-dasharray:3 2;}
 .landmark .lm-ring circle:first-child{transition:stroke-width .15s ease;}
 .landmark .lm-name{pointer-events:none;}
 .lm-flash .lm-ring circle:first-child{
@@ -1541,14 +1542,20 @@ function renderTourMap(){
   addLinkArrow(215,360,340,415,'延伸非遗体验',-4);
   addLinkArrow(560,410,660,500,'组合研学内容',4);
 
-  // 地标
+  // 地标（仅陶艺馆/造纸工坊/红色之家/认养区可点击跳转）
+  var CLICKABLE = {pottery:1, paper:1, redhome:1, field:1};
   TOUR_POIS.forEach(function(p){
     var g = document.createElementNS(NS,'g');
     g.setAttribute('class','landmark');
     g.setAttribute('data-poi', p.id);
-    g.setAttribute('role','button');
-    g.setAttribute('tabindex','0');
-    g.setAttribute('aria-label','定位到 ' + p.name);
+    if (CLICKABLE[p.id]){
+      g.classList.add('clickable');
+      g.setAttribute('role','button');
+      g.setAttribute('tabindex','0');
+      g.setAttribute('aria-label','定位到 ' + p.name);
+    } else {
+      g.style.cursor = 'default';
+    }
     g.setAttribute('transform','translate(' + p.x + ',' + p.y + ')');
     var ring = '<g class="lm-ring">' +
       '<circle cx="0" cy="0" r="46" fill="#FFFDF8" stroke="' + p.color + '" stroke-width="4" filter="url(#lm-shadow)"/>' +
@@ -1581,15 +1588,15 @@ function renderTourMap(){
     svg.appendChild(g);
   });
 
-  // 交互：点击地标 → 跳转下方介绍；键盘可达
+  // 交互：点击地标 → 跳转下方介绍（仅 4 个案例点可点）；键盘可达
   svg.addEventListener('click', function(ev){
     var g = ev.target.closest ? ev.target.closest('.landmark') : null;
-    if (g) goIntro(g.getAttribute('data-poi'));
+    if (g && CLICKABLE[g.getAttribute('data-poi')]) goIntro(g.getAttribute('data-poi'));
   });
   svg.addEventListener('keydown', function(ev){
     if (ev.key !== 'Enter' && ev.key !== ' ') return;
     var g = ev.target.closest ? ev.target.closest('.landmark') : null;
-    if (g){ ev.preventDefault(); goIntro(g.getAttribute('data-poi')); }
+    if (g && CLICKABLE[g.getAttribute('data-poi')]){ ev.preventDefault(); goIntro(g.getAttribute('data-poi')); }
   });
 }
 
