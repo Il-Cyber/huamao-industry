@@ -195,9 +195,8 @@ section#map{padding-top:40px;}
 .poi-list{margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px;}
 .poi-item{
   border:1px solid var(--line);border-left:4px solid var(--green);border-radius:10px;
-  background:var(--card);padding:14px 16px;cursor:pointer;transition:border-color .15s, box-shadow .15s;
+  background:var(--card);padding:14px 16px;
 }
-.poi-item:hover{border-color:var(--red);box-shadow:0 2px 8px rgba(43,38,32,.08);}
 .poi-item .pt{display:flex;align-items:center;gap:8px;font-weight:600;font-size:15px;color:var(--ink);}
 .poi-item .pt i{width:9px;height:9px;border-radius:50%;flex:none;}
 .poi-item .pi{font-size:13px;color:var(--muted);margin-top:5px;}
@@ -1636,17 +1635,11 @@ function goLandmark(id){
 function renderPoiList(){
   var box = document.getElementById('poi-list');
   box.innerHTML = TOUR_POIS.map(function(p){
-    return '<div class="poi-item" style="border-left-color:' + p.color + '" data-poi="' + p.id + '" tabindex="0" role="button" aria-label="查看 ' + p.name + '">' +
+    return '<div class="poi-item" style="border-left-color:' + p.color + '" data-poi="' + p.id + '">' +
       '<div class="pt"><i style="background:' + p.color + '"></i>' + p.name +
       '<span class="ptg">' + p.chain + '</span></div>' +
       '<div class="pi">' + p.intro + '</div></div>';
   }).join('');
-  box.querySelectorAll('.poi-item').forEach(function(el){
-    var p = TOUR_POIS.find(function(x){ return x.id === el.getAttribute('data-poi'); });
-    function go(){ goLandmark(p.id); }
-    el.addEventListener('click', go);
-    el.addEventListener('keydown', function(ev){ if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
-  });
 }
 
 /* 案例卡“查看点位”按钮：跳转示意图并高亮地标 */
